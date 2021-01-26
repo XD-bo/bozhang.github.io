@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
-<meta  lang="zh-CN" >
+<html  lang="zh-CN" >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#fff" id="theme-color">
-  <link rel="icon" href="/img/Kaze.png">
-  <title>theme-kaze demo</title>
+  <meta name="description" content="天净沙的博客">
+  <link rel="icon" href="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.png">
+  <title>天净沙的博客</title>
+  
+  
+  <meta property="og:title" content="天净沙的博客">
+  
+  
+  <meta property="og:url" content="http://example.com/index.html">
+  
+  
+  <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/tianjingsha_img.png">
+  
+  
+  
+  
   <script>
     // control reverse button
     var reverseDarkList = {
@@ -64,10 +77,11 @@
     }
   </script>
   
-  <link rel="preload" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
   <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
   
-  <link rel="preload" href="//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js" as="script">
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
   
   
   <link rel="preload" href="/js/lib/lozad.min.js" as="script">
@@ -83,12 +97,13 @@
 
   
   
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
 
   
   
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
 
+  
   
   
   
@@ -102,28 +117,58 @@
   <div class="navbar-logo">
     <span class="navbar-logo-main">
       
-      <img class="navbar-logo-img" src="/img/Kaze.png">
+      <img class="navbar-logo-img" src="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.png" alt="logo">
       
-      <span class="navbar-logo-dsc">theme-kaze demo</span>
+      <span class="navbar-logo-dsc">天净沙的博客</span>
     </span>
   </div>
   <div class="navbar-menu">
     
-    <a href="/" class="navbar-menu-item">首页 </a>
+    <a href="/" class="navbar-menu-item">
     
-    <a href="/archives" class="navbar-menu-item">归档 </a>
+    首页
     
-    <a href="/tags" class="navbar-menu-item">标签 </a>
+    </a>
     
-    <a href="/categories" class="navbar-menu-item">分类 </a>
+    <a href="/archives" class="navbar-menu-item">
     
-    <a href="/about" class="navbar-menu-item">关于 </a>
+    归档
     
-    <a href="/links" class="navbar-menu-item">友链 </a>
+    </a>
+    
+    <a href="/tags" class="navbar-menu-item">
+    
+    标签
+    
+    </a>
+    
+    <a href="/categories" class="navbar-menu-item">
+    
+    分类
+    
+    </a>
+    
+    <a href="/about" class="navbar-menu-item">
+    
+    关于
+    
+    </a>
+    
+    <a href="/links" class="navbar-menu-item">
+    
+    友链
+    
+    </a>
     
     <a class="navbar-menu-item darknavbar" id="dark"><i class="iconfont icon-weather"></i></a>
+    <a class="navbar-menu-item searchnavbar" id="search"><i class="iconfont icon-search" style="font-size: 1.2rem; font-weight: 400;"></i></a>
   </div>
 </nav>
+    
+    <div id="local-search" style="display: none;">
+      <input class="navbar-menu-item" id="search-input" placeholder="请输入搜索内容...">
+      <div id="search-content"></div>
+    </div>
     
     <div class="section-wrap">
       <div class="container">
@@ -144,14 +189,10 @@
     </div>
     <div class="card-post-footer">
       <div class="post-meta">
-        <time datetime="2021-01-26T16:58:00.000Z" style="display: flex; align-items: center;">
+        <time datetime="2021-01-26T16:58:00.000Z">
           <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
           <span>2021-01-26</span>
         </time>
-        
-        
-        <span class="dot"></span>
-        <span>0 字</span>
         
       </div>
       <a href="/2021/01/27/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/">继续阅读 </a>
@@ -186,14 +227,10 @@
     </div>
     <div class="card-post-footer">
       <div class="post-meta">
-        <time datetime="2021-01-26T16:34:47.000Z" style="display: flex; align-items: center;">
+        <time datetime="2021-01-26T16:34:47.000Z">
           <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
           <span>2021-01-26</span>
         </time>
-        
-        
-        <span class="dot"></span>
-        <span>16 字</span>
         
       </div>
       <a href="/2021/01/27/article-title/">继续阅读 </a>
@@ -216,14 +253,10 @@
     </div>
     <div class="card-post-footer">
       <div class="post-meta">
-        <time datetime="2021-01-26T07:44:45.840Z" style="display: flex; align-items: center;">
+        <time datetime="2021-01-26T07:44:45.840Z">
           <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
           <span>2021-01-26</span>
         </time>
-        
-        
-        <span class="dot"></span>
-        <span>75 字</span>
         
       </div>
       <a href="/2021/01/26/hello-world/">继续阅读 </a>
@@ -236,10 +269,10 @@
             
             <div class="card card-author">
               
-<img src="/img/Kaze.png" class="author-img">
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/tianjingsha_img.png" class="author-img">
 
-<p class="author-name">theme-kaze</p>
-<p class="author-description">designed by theme-kaze</p>
+<p class="author-name">天净沙</p>
+<p class="author-description">执着于理想，纯粹于当下</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
     <span>3</span>
@@ -261,7 +294,7 @@
   
   
   
-  <article class="card card-content">
+  <article class="card card-content categories-widget">
     <div class="categories-card">
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
@@ -270,7 +303,7 @@
 </div>
   </article>
   
-  <article class="card card-content">
+  <article class="card card-content tags-widget">
     <div class="tags-card">
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
@@ -280,7 +313,7 @@
   </article>
   
   
-  <article class="card card-content widescreen-archive">
+  <article class="card card-content widescreen-archive archive-widget">
     <div class="archive-card">
   <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
   <div class="archive-card-list">
@@ -391,20 +424,19 @@
           
           2021
         </span>
-        <a href="/" class="footer-link">theme-kaze demo </a>
+        &nbsp;
+        <a href="/" class="footer-link">天净沙的博客 </a>
       </div>
     </div>
 
     
     <div class="footer-dsc">
       
-      
       Powered by
       <a href="https://hexo.io/" class="footer-link" target="_blank" rel="nofollow noopener noreferrer">&nbsp;Hexo </a>
       
       
       <span>&nbsp;|&nbsp;</span>
-      
       
       
       Theme -
@@ -417,38 +449,24 @@
     
     
 </footer>
-  <a role="button" id="scrollbutton" class="basebutton" >
+  <a role="button" id="scrollbutton" class="basebutton"  aria-label="回到顶部">
   <i class="iconfont icon-arrowleft button-icon"></i>
 </a>
 <a role="button" id="menubutton" class="basebutton">
   <i class="iconfont icon-menu button-icon"></i>
 </a>
-<a role="button" id="popbutton" class="basebutton">
+<a role="button" id="popbutton" class="basebutton" aria-label="控制中心">
   <i class="iconfont icon-expand button-icon"></i>
 </a>
-<a role="button" id="darkbutton" class="basebutton darkwidget">
+<a role="button" id="darkbutton" class="basebutton darkwidget" aria-label="夜色模式">
   <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a role="button" id="searchbutton" class="basebutton searchwidget" aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
 </a>
 
   
   
-  
-  <script>
-  var addImgLayout = function () {
-    var img = document.querySelectorAll('.post-content img');
-    var i;
-    for (i = 0; i < img.length; i++) {
-      var wrapper = document.createElement('a');
-      wrapper.setAttribute('data-fslightbox', 'gallery');
-      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
-      wrapper.setAttribute('style', 'width: 100%; display: flex; justify-content: center;');
-      img[i].parentElement.insertBefore(wrapper, img[i]);
-      wrapper.appendChild(img[i]);
-    }
-    refreshFsLightbox();
-  }
-</script>
-<script>loadScript("//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js", addImgLayout)</script>
   
   
   
