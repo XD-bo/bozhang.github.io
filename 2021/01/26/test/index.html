@@ -311,9 +311,9 @@ q <span class="token operator">=</span> requests<span class="token punctuation">
 <li>. . .</li>
 </ul>
 <p>视频嵌入</p>
-<center>
-<iframe src="//player.bilibili.com/player.html?aid=795748722&bvid=BV1GC4y1p7wH&cid=193076239&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</center>
+<div style="position: relative; padding: 30% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=795748722&bvid=BV1GC4y1p7wH&cid=193076239&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
 <p>音频嵌入</p>
 <center>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1808492017&auto=0&height=66"></iframe>
@@ -552,6 +552,16 @@ q <span class="token operator">=</span> requests<span class="token punctuation">
   </script>
   <script>loadScript("/js/lib/lozad.min.js", addLazyload)</script>
   
+  
+  <script>
+    var googleAnalytics = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FDNHV7ZT66');
+    }
+  </script>
+  <script>loadScript("https://www.googletagmanager.com/gtag/js?id=" + "G-FDNHV7ZT66", googleAnalytics)</script>
   
 </body>
 
