@@ -8,16 +8,32 @@
   <meta name="theme-color" content="#fff" id="theme-color">
   <meta name="description" content="天净沙的博客">
   <link rel="icon" href="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.svg">
-  <title>归档</title>
+  <title>(1)爬虫相关概念</title>
   
   
-  <meta property="og:title" content="归档">
+  <meta property="og:title" content="(1)爬虫相关概念">
   
   
-  <meta property="og:url" content="https://vbozhang.github.io/archives/2021/01/index.html">
+  <meta property="og:url" content="https://vbozhang.github.io/2021/02/02/python-crawler/basics/index.html">
   
   
-  <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/tianjingsha_img.png">
+  <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/blog_img_test.jpg">
+  
+  
+  <meta property="og:img" content="&lt;p&gt;决定系统学习下网络爬虫，这是这个系列的第一篇，主要是一些概念的介绍&lt;/p&gt;">
+  
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:published_time" content="2021-02-02">
+  <meta property="og:article:modified_time" content="2021-02-02">
+  <meta property="og:article:author" content="天净沙">
+  
+  
+  <meta property="og:article:tag" content="分布式爬虫">
+  
+  <meta property="og:article:tag" content="python">
+  
+  <meta property="og:article:tag" content="http协议">
   
   
   
@@ -111,6 +127,10 @@
 
   
   
+<link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+
+  
+  
   
   
   
@@ -180,28 +200,77 @@
       <div class="container">
         <div class="columns">
           <main class="main-column">
-<div class="card card-content">
-  <h1 class="widget-title">归档</h1>
+<div class="image-wrapper">
+  <img src="https://gitee.com/bozhang/imgbed/raw/master/img/blog_img_test.jpg" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/blog_img_test.jpg"
+    srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif"
+    class="image lozad"
+    alt="thumbnail"
+  >
 </div>
-<div class="archive-timeline">
+
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      (1)爬虫相关概念
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2021-02-02T15:21:15.989Z">
+      <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+      <span>2021-02-02</span>
+    </time>
+    
+    <span class="dot"></span>
+    
+    <a href="/categories/python爬虫/" class="post-meta-link">python爬虫</a>
+    
+    
+    
+    <span class="dot"></span>
+    <span>38 字</span>
+    
+  </div>
   
-  
-  
-  <div class="archive-timeline-tag"><span>2021</span></div>
-  
-  
-  <div class="archive-timeline-item">
-    <div class="archive-timeline-post">
-      <div class="card card-content">
-        <div class="archive-timeline-post-date">2021-01-26</div>
-        <div class="archive-timeline-post-content"><a href="/2021/01/26/test/"
-            class="archive-timeline-post-item">test</a></div>
-      </div>
+  <div class="post-meta post-show-meta" style="margin-top: -10px;">
+    <div style="display: flex; align-items: center;">
+      <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
+      
+      
+        <a href="/tags/分布式爬虫/" class="post-meta-link">分布式爬虫</a>
+      
+      
+      <span class="dot"></span>
+      
+        <a href="/tags/python/" class="post-meta-link">python</a>
+      
+      
+      <span class="dot"></span>
+      
+        <a href="/tags/http协议/" class="post-meta-link">http协议</a>
+      
     </div>
   </div>
   
+  </header>
+  <div id="section" class="post-content">
+    <p>决定系统学习下网络爬虫，这是这个系列的第一篇，主要是一些概念的介绍</p>
+<a id="more"></a>
+<h1 id="什么是网络爬虫"><a class="markdownIt-Anchor" href="#什么是网络爬虫"></a> 什么是网络爬虫</h1>
+
+  </div>
+  <div>
+  
+  </div>
+</article>
+<div class="nav">
+  
+  
 </div>
-</main>
+
+<div class="card card-content toc-card" id="mobiletoc">
+  <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li></ol>
+</div></main>
           <aside class="left-column">
             
             <div class="card card-author">
@@ -216,11 +285,11 @@
     <span>文章</span>
   </a>
   <a class="author-categories-count" href="/categories">
-    <span>2</span>
+    <span>1</span>
     <span>分类</span>
   </a>
   <a class="author-tags-count" href="/tags">
-    <span>1</span>
+    <span>3</span>
     <span>标签</span>
   </a>
 </div>
@@ -230,22 +299,22 @@
             <div class="sticky-tablet">
   
   
+  <article class="display-when-two-columns spacer">
+    <div class="card card-content toc-card">
+      <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li></ol>
+    </div>
+  </article>
+  
   
   <article class="card card-content categories-widget">
     <div class="categories-card">
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/Test1">
+      <a href="/categories/python爬虫">
         <div class="categories-list-item">
-          Test1
-          <span class="categories-list-item-badge">1</span>
-        </div>
-      </a>
-    
-      <a href="/categories/Test2">
-        <div class="categories-list-item">
-          Test2
+          python爬虫
           <span class="categories-list-item-badge">1</span>
         </div>
       </a>
@@ -259,41 +328,27 @@
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
-    <a href="\tags\test" title="test"><div class="tags-list-item">test</div></a>
+    <a href="\tags\http协议" title="http协议"><div class="tags-list-item">http协议</div></a>
+    
+    <a href="\tags\python" title="python"><div class="tags-list-item">python</div></a>
+    
+    <a href="\tags\分布式爬虫" title="分布式爬虫"><div class="tags-list-item">分布式爬虫</div></a>
     
   </div>
 </div>
   </article>
   
-  
-  <article class="card card-content widescreen-archive archive-widget">
-    <div class="archive-card">
-  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
-  <div class="archive-card-list">
-    
-    
-    
-      
-        
-        
-        
-      
-    
-    
-      <a href="/archives/2021" class="archive-card-list-item">
-          2021
-          <span class="archive-card-list-item-badge">1</span>
-      </a>
-    
-  </div>
-</div>
-  </article>
   
 </div>
           </aside>
           <aside class="right-column">
             <div class="sticky-widescreen">
   
+  
+  <article class="card card-content toc-card">
+    <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li></ol>
+  </article>
   
   
   <article class="card card-content">
@@ -302,37 +357,14 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-01-26</div>
-        <a href="/2021/01/26/test/"><div class="recent-posts-item-content">test</div></a>
+        <div class="recent-posts-item-title">2021-02-02</div>
+        <a href="/2021/02/02/python-crawler/basics/"><div class="recent-posts-item-content">(1)爬虫相关概念</div></a>
       </div>
     
   </div>
 </div>
   </article>
   
-  
-  <article class="card card-content">
-    <div class="archive-card">
-  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
-  <div class="archive-card-list">
-    
-    
-    
-      
-        
-        
-        
-      
-    
-    
-      <a href="/archives/2021" class="archive-card-list-item">
-          2021
-          <span class="archive-card-list-item-badge">1</span>
-      </a>
-    
-  </div>
-</div>
-  </article>
   
 </div>
           </aside>
@@ -397,6 +429,29 @@
   
 
   
+  
+  <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img');
+    var i;
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a');
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
+      wrapper.setAttribute('aria-label', 'illustration');
+      wrapper.style.cssText = 'width: 100%; display: flex; justify-content: center;';
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt;
+      wrapper.dataset.nolink = true;
+      img[i].before(wrapper);
+      wrapper.append(img[i]);
+      var divWrap = document.createElement('div');
+      divWrap.classList.add('gallery');
+      wrapper.before(divWrap);
+      divWrap.append(wrapper);
+    }
+    baguetteBox.run('.gallery');
+  }
+</script>
+<script>loadScript("/js/lib/lightbox/baguetteBox.min.js", addImgLayout)</script>
   
   
   
