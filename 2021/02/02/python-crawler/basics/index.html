@@ -8,10 +8,10 @@
   <meta name="theme-color" content="#fff" id="theme-color">
   <meta name="description" content="天净沙的博客">
   <link rel="icon" href="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.svg">
-  <title>(1)爬虫相关概念</title>
+  <title>爬虫相关概念</title>
   
   
-  <meta property="og:title" content="(1)爬虫相关概念">
+  <meta property="og:title" content="爬虫相关概念">
   
   
   <meta property="og:url" content="https://vbozhang.github.io/2021/02/02/python-crawler/basics/index.html">
@@ -20,20 +20,20 @@
   <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg">
   
   
-  <meta property="og:img" content="&lt;p&gt;决定系统学习下网络爬虫，这是这个系列的第一篇，主要是一些概念的介绍&lt;/p&gt;">
+  <meta property="og:img" content="&lt;p&gt;决定系统学习下网络爬虫，这是这个系列的第一篇，主要是爬虫相关的一些概念的介绍&lt;/p&gt;">
   
   
   <meta property="og:type" content="article">
   <meta property="og:article:published_time" content="2021-02-02">
-  <meta property="og:article:modified_time" content="2021-02-02">
+  <meta property="og:article:modified_time" content="2021-02-03">
   <meta property="og:article:author" content="天净沙">
   
-  
-  <meta property="og:article:tag" content="分布式爬虫">
   
   <meta property="og:article:tag" content="python">
   
   <meta property="og:article:tag" content="http协议">
+  
+  <meta property="og:article:tag" content="网络爬虫">
   
   
   
@@ -211,7 +211,7 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      (1)爬虫相关概念
+      爬虫相关概念
     </h1>
   </header>
   <div class="post-meta post-show-meta">
@@ -227,7 +227,7 @@
     
     
     <span class="dot"></span>
-    <span>38 字</span>
+    <span>712 字</span>
     
   </div>
   
@@ -236,11 +236,6 @@
       <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
       
       
-        <a href="/tags/分布式爬虫/" class="post-meta-link">分布式爬虫</a>
-      
-      
-      <span class="dot"></span>
-      
         <a href="/tags/python/" class="post-meta-link">python</a>
       
       
@@ -248,14 +243,40 @@
       
         <a href="/tags/http协议/" class="post-meta-link">http协议</a>
       
+      
+      <span class="dot"></span>
+      
+        <a href="/tags/网络爬虫/" class="post-meta-link">网络爬虫</a>
+      
     </div>
   </div>
   
   </header>
   <div id="section" class="post-content">
-    <p>决定系统学习下网络爬虫，这是这个系列的第一篇，主要是一些概念的介绍</p>
+    <p>决定系统学习下网络爬虫，这是这个系列的第一篇，主要是爬虫相关的一些概念的介绍</p>
 <a id="more"></a>
-<h1 id="什么是网络爬虫"><a class="markdownIt-Anchor" href="#什么是网络爬虫"></a> 什么是网络爬虫</h1>
+<h1 id="网络爬虫"><a class="markdownIt-Anchor" href="#网络爬虫"></a> 网络爬虫</h1>
+<h2 id="什么是网络爬虫"><a class="markdownIt-Anchor" href="#什么是网络爬虫"></a> 什么是网络爬虫</h2>
+<blockquote><p>网络爬虫，又被称为网页蜘蛛，网络机器人，在FOAF（FOAF，即Friend-of-a-Friend，简称FOAF。FOAF 是一种 XML/RDF 词汇表，它以计算机可读的形式描述您通常可能放在主 Web 页面上的个人信息之类的信息）社区中间，更经常的称为网页追逐者，是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本，另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。</p>
+</blockquote>
+<p>更通俗一点说</p>
+<blockquote><p>爬虫就是一个探测机器，它的基本操作就是模拟人的行为去各个网站溜达，点点按钮，查查数据，或者把看到的信息背回来。就像一只虫子在一幢楼里不知疲倦地爬来爬去。<br />
+你可以简单地想象：每个爬虫都是你的「分身」。就像孙悟空拔了一撮汗毛，吹出一堆猴子一样。<br />
+你每天使用的百度，其实就是利用了这种爬虫技术：每天放出无数爬虫到各个网站，把他们的信息抓回来，然后化好淡妆排着小队等你来检索。<br />
+抢票软件，就相当于撒出去无数个分身，每一个分身都帮助你不断刷新 12306 网站的火车余票。一旦发现有票，就马上拍下来，然后对你喊：土豪快来付款。</p>
+</blockquote>
+<h2 id="网络爬虫的分类"><a class="markdownIt-Anchor" href="#网络爬虫的分类"></a> 网络爬虫的分类</h2>
+<p>根据使用场景，爬虫可以分为通用爬虫和聚焦爬虫</p>
+<ol>
+<li>通用爬虫：通用爬虫是搜索引擎抓取系统（百度、谷歌、搜狗等）的重要组成部分。主要是将互联网上的网页下载到本地，形成一个互联网内容的镜像备份。</li>
+<li>聚焦爬虫：是面向特定需求的一种网络爬虫程序，他与通用爬虫的区别在于：聚焦爬虫在实施网页抓取的时候会对内容进行筛选和处理，尽量保证只抓取与需求相关的网页信息。</li>
+</ol>
+<h2 id="为什么用python写网络爬虫"><a class="markdownIt-Anchor" href="#为什么用python写网络爬虫"></a> 为什么用python写网络爬虫</h2>
+<p>爬虫是工具性程序，对速度和效率要求高，PHP对对线程、异步支持不是很好，并发处理能力弱；JAVA语言笨重，代码量大，重构成本高；C/C++学习和开发成本高；Python代码简洁，支持模块多，开发效率高，易于修改，适合作为开发爬虫的语言。</p>
+<hr />
+<p>参考：<br />
+[1]&quot;通俗的讲，网络爬虫到底是什么？&quot;知乎.史中<a href="https://www.zhihu.com/question/24098641/answer/453634446">https://www.zhihu.com/question/24098641/answer/453634446</a><br />
+[2]</p>
 
   </div>
   <div>
@@ -269,7 +290,7 @@
 
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 网络爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text"> 网络爬虫的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.3.</span> <span class="toc-text"> 为什么用python写网络爬虫</span></a></li></ol></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -302,7 +323,7 @@
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 网络爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text"> 网络爬虫的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.3.</span> <span class="toc-text"> 为什么用python写网络爬虫</span></a></li></ol></li></ol>
     </div>
   </article>
   
@@ -328,11 +349,11 @@
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
+    <a href="\tags\网络爬虫" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
+    
     <a href="\tags\http协议" title="http协议"><div class="tags-list-item">http协议</div></a>
     
     <a href="\tags\python" title="python"><div class="tags-list-item">python</div></a>
-    
-    <a href="\tags\分布式爬虫" title="分布式爬虫"><div class="tags-list-item">分布式爬虫</div></a>
     
   </div>
 </div>
@@ -347,7 +368,7 @@
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 网络爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text"> 网络爬虫的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.3.</span> <span class="toc-text"> 为什么用python写网络爬虫</span></a></li></ol></li></ol>
   </article>
   
   
@@ -358,7 +379,7 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-02-02</div>
-        <a href="/2021/02/02/python-crawler/basics/"><div class="recent-posts-item-content">(1)爬虫相关概念</div></a>
+        <a href="/2021/02/02/python-crawler/basics/"><div class="recent-posts-item-content">爬虫相关概念</div></a>
       </div>
     
   </div>
