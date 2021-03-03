@@ -225,7 +225,7 @@
     
     
     <span class="dot"></span>
-    <span>291 字</span>
+    <span>303 字</span>
     
   </div>
   
@@ -263,7 +263,7 @@ example.txt ：</p>
     <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></code></pre>
 <p>运行结果：</p>
 <pre class="language-txt" data-language="txt"><code class="language-txt">1 2 3
-</code></pre>
+ </code></pre>
 <p>这里空格和回车各算一个字符，共读取6个。</p>
 <h2 id="readline方法"><a class="markdownIt-Anchor" href="#readline方法"></a> readline()方法</h2>
 <p>readline方法可以从文件中读取整行，包括换行符’\n’</p>
@@ -275,10 +275,10 @@ example.txt ：</p>
     <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></code></pre>
 <p>运行结果：</p>
 <pre class="language-txt" data-language="txt"><code class="language-txt">1 2 3
-</code></pre>
+ </code></pre>
 <p>readline方法会记住上一个readline函数读取的位置，接着读取下一行</p>
 <h2 id="readlines方法"><a class="markdownIt-Anchor" href="#readlines方法"></a> readlines方法</h2>
-<p>可以读取多行，没有参数</p>
+<p>可以读取多行，没有参数，返回的是所有行组成的列表</p>
 <p>示例：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
     content <span class="token operator">=</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
