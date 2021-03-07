@@ -6,7 +6,7 @@
     content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#fff" id="theme-color">
-  <meta name="description" content="天净沙的博客">
+  <meta name="description" content="执着于理想，纯粹于当下">
   <link rel="icon" href="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.svg">
   <title>python爬虫-文件读取</title>
   
@@ -14,13 +14,13 @@
   <meta property="og:title" content="python爬虫-文件读取">
   
   
-  <meta property="og:url" content="https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/index.html">
+  <meta property="og:url" content="https://vbozhang.github.io/project/2021/03/01/python-crawler/FileReading/index.html">
   
   
   <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg">
   
   
-  <meta property="og:img" content="&lt;p&gt;网络爬虫系列的附加内容，对爬取到的内容进行读取操作&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;">
+  <meta property="og:img" content="&lt;p&gt;网络爬虫系列的附加内容，对爬取到的内容进行读取操作&lt;a href=&#34;%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99.%E7%9F%A5%E4%B9%8E.%E6%9C%B1%E5%8D%AB%E5%86%9B.%5Bhttps://zhuanlan.zhihu.com/p/78330811%5D(https://zhuanlan.zhihu.com/p/78330811)&#34;&gt;^1&lt;/a&gt;&lt;/p&gt;">
   
   
   <meta property="og:type" content="article">
@@ -131,12 +131,6 @@
   
   
   
-  
-  
-  <link href="/js/lib/prism/prism-tomorrow.min.css" rel="stylesheet" data-prism="prism-tomorrow">
-  
-  
-  
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 
@@ -225,7 +219,7 @@
     
     
     <span class="dot"></span>
-    <span>301 字</span>
+    <span>285 字</span>
     
   </div>
   
@@ -246,53 +240,50 @@
   
   </header>
   <div id="section" class="post-content">
-    <p>网络爬虫系列的附加内容，对爬取到的内容进行读取操作<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+    <p>网络爬虫系列的附加内容，对爬取到的内容进行读取操作<a href="%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99.%E7%9F%A5%E4%B9%8E.%E6%9C%B1%E5%8D%AB%E5%86%9B.%5Bhttps://zhuanlan.zhihu.com/p/78330811%5D(https://zhuanlan.zhihu.com/p/78330811)">^1</a></p>
 <a id="more"></a>
-<hr />
-<h2 id="read方法"><a class="markdownIt-Anchor" href="#read方法"></a> read()方法</h2>
-<p>read方法有一个参数：</p>
-<pre class="language-python" data-language="python"><code class="language-python">f<span class="token punctuation">.</span>read<span class="token punctuation">(</span>size<span class="token punctuation">)</span> <span class="token comment"># f为文件对象</span></code></pre>
-<p>可选参数<code>size</code>为数字，表示从已打开文件中读取的字节计数，默认情况下为读取全部<br />
-示例：<br />
-example.txt ：</p>
-<pre class="language-txt" data-language="txt"><code class="language-txt">1 2 3
-4 5 6
-7 8 9</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-    content <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></code></pre>
+
+<hr>
+<h2 id="read-方法"><a href="#read-方法" class="headerlink" title="read()方法"></a>read()方法</h2><p>read方法有一个参数：</p>
+<pre class="highlight"><span class="line">f.read(size) <span class="comment"># f为文件对象</span></span><br></pre>
+<p>可选参数<code>size</code>为数字，表示从已打开文件中读取的字节计数，默认情况下为读取全部<br>示例：<br>example.txt ：</p>
+<pre class="highlight"><span class="line">1 2 3</span><br><span class="line">4 5 6</span><br><span class="line">7 8 9</span><br></pre>
+<pre class="highlight"><span class="line"><span class="keyword">with</span>  <span class="built_in">open</span>(<span class="string">&#x27;example.txt&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.read(<span class="number">6</span>)</span><br><span class="line">    print(content)</span><br></pre>
 <p>运行结果：</p>
-<pre class="language-txt" data-language="txt"><code class="language-txt">1 2 3
- </code></pre>
+<pre class="highlight"><span class="line">1 2 3</span><br><span class="line"> </span><br></pre>
 <p>这里空格和回车各算一个字符，共读取6个。</p>
-<h2 id="readline方法"><a class="markdownIt-Anchor" href="#readline方法"></a> readline()方法</h2>
-<p>readline方法可以从文件中读取整行，包括换行符’\n’</p>
-<pre class="language-python" data-language="python"><code class="language-python">f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span>size<span class="token punctuation">)</span></code></pre>
-<p><code>size</code>表示读取的字节数，默认情况下为读取一行中的全部字符<br />
-示例：</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-    content <span class="token operator">=</span> f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></code></pre>
+<h2 id="readline-方法"><a href="#readline-方法" class="headerlink" title="readline()方法"></a>readline()方法</h2><p>readline方法可以从文件中读取整行，包括换行符’\n’</p>
+<pre class="highlight"><span class="line">f.readline(size)</span><br></pre>
+<p><code>size</code>表示读取的字节数，默认情况下为读取一行中的全部字符<br>示例：</p>
+<pre class="highlight"><span class="line"><span class="keyword">with</span>  <span class="built_in">open</span>(<span class="string">&#x27;example.txt&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.readline()</span><br><span class="line">    print(content)</span><br></pre>
 <p>运行结果：</p>
-<pre class="language-txt" data-language="txt"><code class="language-txt">1 2 3
- </code></pre>
+<pre class="highlight"><span class="line">1 2 3</span><br><span class="line"> </span><br></pre>
 <p>readline方法会记住上一个readline函数读取的位置，接着读取下一行</p>
-<h2 id="readlines方法"><a class="markdownIt-Anchor" href="#readlines方法"></a> readlines方法</h2>
-<p>可以读取多行，没有参数，返回的是所有行组成的列表</p>
+<h2 id="readlines方法"><a href="#readlines方法" class="headerlink" title="readlines方法"></a>readlines方法</h2><p>可以读取多行，没有参数，返回的是所有行组成的列表</p>
 <p>示例：</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-    content <span class="token operator">=</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></code></pre>
+<pre class="highlight"><span class="line"><span class="keyword">with</span>  <span class="built_in">open</span>(<span class="string">&#x27;example.txt&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.readlines()</span><br><span class="line">    print(content)</span><br></pre>
 <p>运行结果：</p>
-<pre class="language-txt" data-language="txt"><code class="language-txt">[&#39;1 2 3\n&#39;, &#39;4 5 6\n&#39;, &#39;7 8 9&#39;]</code></pre>
-<hr />
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>一文搞懂Python文件读写.知乎.朱卫军.<a href="https://zhuanlan.zhihu.com/p/78330811">https://zhuanlan.zhihu.com/p/78330811</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
+<pre class="highlight"><span class="line">[&#x27;1 2 3\n&#x27;, &#x27;4 5 6\n&#x27;, &#x27;7 8 9&#x27;]</span><br></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
 
   </div>
   <div>
@@ -330,7 +321,7 @@ example.txt ：</p>
 
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text"> readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> readlines方法</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read-%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline-%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">readlines方法</span></a></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -363,7 +354,7 @@ example.txt ：</p>
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text"> readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> readlines方法</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read-%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline-%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">readlines方法</span></a></li></ol>
     </div>
   </article>
   
@@ -373,7 +364,7 @@ example.txt ：</p>
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/python">
+      <a href="/categories/python/">
         <div class="categories-list-item">
           python
           <span class="categories-list-item-badge">4</span>
@@ -389,17 +380,17 @@ example.txt ：</p>
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
-    <a href="\tags\python" title="python"><div class="tags-list-item">python</div></a>
+    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
     
-    <a href="\tags\网络爬虫" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
+    <a href="/tags/网络爬虫/" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
     
-    <a href="\tags\urllib" title="urllib"><div class="tags-list-item">urllib</div></a>
+    <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
     
-    <a href="\tags\IP代理" title="IP代理"><div class="tags-list-item">IP代理</div></a>
+    <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
     
-    <a href="\tags\文件读取" title="文件读取"><div class="tags-list-item">文件读取</div></a>
+    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
     
-    <a href="\tags\http协议" title="http协议"><div class="tags-list-item">http协议</div></a>
+    <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
     
   </div>
 </div>
@@ -414,7 +405,7 @@ example.txt ：</p>
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text"> readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> readlines方法</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read-%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline-%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">readlines方法</span></a></li></ol>
   </article>
   
   

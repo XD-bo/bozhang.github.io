@@ -6,7 +6,7 @@
     content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#fff" id="theme-color">
-  <meta name="description" content="天净沙的博客">
+  <meta name="description" content="执着于理想，纯粹于当下">
   <link rel="icon" href="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.svg">
   <title>python爬虫-了解爬虫与http</title>
   
@@ -14,7 +14,7 @@
   <meta property="og:title" content="python爬虫-了解爬虫与http">
   
   
-  <meta property="og:url" content="https://vbozhang.github.io/2021/02/02/python-crawler/basics/index.html">
+  <meta property="og:url" content="https://vbozhang.github.io/project/2021/02/02/python-crawler/basics/index.html">
   
   
   <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg">
@@ -130,12 +130,6 @@
 <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
 
   
-  
-  
-  
-  
-  
-  <link href="/js/lib/prism/prism-tomorrow.min.css" rel="stylesheet" data-prism="prism-tomorrow">
   
   
   
@@ -255,41 +249,29 @@
   <div id="section" class="post-content">
     <p>决定系统学习下网络爬虫，这是这个系列的第一篇，主要是爬虫相关的一些概念的介绍</p>
 <a id="more"></a>
-<hr />
-<h2 id="网络爬虫"><a class="markdownIt-Anchor" href="#网络爬虫"></a> 网络爬虫</h2>
-<h3 id="什么是网络爬虫"><a class="markdownIt-Anchor" href="#什么是网络爬虫"></a> 什么是网络爬虫</h3>
-<blockquote><p>网络爬虫，又被称为网页蜘蛛，网络机器人，在FOAF（FOAF，即Friend-of-a-Friend，简称FOAF。FOAF 是一种 XML/RDF 词汇表，它以计算机可读的形式描述您通常可能放在主 Web 页面上的个人信息之类的信息）社区中间，更经常的称为网页追逐者，是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本，另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。</p>
+
+<hr>
+<h2 id="网络爬虫"><a href="#网络爬虫" class="headerlink" title="网络爬虫"></a>网络爬虫</h2><h3 id="什么是网络爬虫"><a href="#什么是网络爬虫" class="headerlink" title="什么是网络爬虫"></a>什么是网络爬虫</h3><blockquote><p>网络爬虫，又被称为网页蜘蛛，网络机器人，在FOAF（FOAF，即Friend-of-a-Friend，简称FOAF。FOAF 是一种 XML/RDF 词汇表，它以计算机可读的形式描述您通常可能放在主 Web 页面上的个人信息之类的信息）社区中间，更经常的称为网页追逐者，是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本，另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。</p>
 </blockquote>
+
 <p>更通俗一点说</p>
-<blockquote><p>爬虫就是一个探测机器，它的基本操作就是模拟人的行为去各个网站溜达，点点按钮，查查数据，或者把看到的信息背回来。就像一只虫子在一幢楼里不知疲倦地爬来爬去。<br />
-你可以简单地想象：每个爬虫都是你的「分身」。就像孙悟空拔了一撮汗毛，吹出一堆猴子一样。<br />
-你每天使用的百度，其实就是利用了这种爬虫技术：每天放出无数爬虫到各个网站，把他们的信息抓回来，然后化好淡妆排着小队等你来检索。<br />
-抢票软件，就相当于撒出去无数个分身，每一个分身都帮助你不断刷新 12306 网站的火车余票。一旦发现有票，就马上拍下来，然后对你喊：土豪快来付款。</p>
+<blockquote><p>爬虫就是一个探测机器，它的基本操作就是模拟人的行为去各个网站溜达，点点按钮，查查数据，或者把看到的信息背回来。就像一只虫子在一幢楼里不知疲倦地爬来爬去。<br>你可以简单地想象：每个爬虫都是你的「分身」。就像孙悟空拔了一撮汗毛，吹出一堆猴子一样。<br>你每天使用的百度，其实就是利用了这种爬虫技术：每天放出无数爬虫到各个网站，把他们的信息抓回来，然后化好淡妆排着小队等你来检索。<br>抢票软件，就相当于撒出去无数个分身，每一个分身都帮助你不断刷新 12306 网站的火车余票。一旦发现有票，就马上拍下来，然后对你喊：土豪快来付款。</p>
 </blockquote>
-<h3 id="网络爬虫的分类"><a class="markdownIt-Anchor" href="#网络爬虫的分类"></a> 网络爬虫的分类</h3>
-<p>根据使用场景，爬虫可以分为通用爬虫和聚焦爬虫</p>
+
+<h3 id="网络爬虫的分类"><a href="#网络爬虫的分类" class="headerlink" title="网络爬虫的分类"></a>网络爬虫的分类</h3><p>根据使用场景，爬虫可以分为通用爬虫和聚焦爬虫</p>
 <ol>
 <li>通用爬虫：通用爬虫是搜索引擎抓取系统（百度、谷歌、搜狗等）的重要组成部分。主要是将互联网上的网页下载到本地，形成一个互联网内容的镜像备份。</li>
 <li>聚焦爬虫：是面向特定需求的一种网络爬虫程序，他与通用爬虫的区别在于：聚焦爬虫在实施网页抓取的时候会对内容进行筛选和处理，尽量保证只抓取与需求相关的网页信息。</li>
 </ol>
-<h3 id="为什么用python写网络爬虫"><a class="markdownIt-Anchor" href="#为什么用python写网络爬虫"></a> 为什么用python写网络爬虫</h3>
-<p>爬虫是工具性程序，对速度和效率要求高，PHP对对线程、异步支持不是很好，并发处理能力弱；JAVA语言笨重，代码量大，重构成本高；C/C++学习和开发成本高；Python代码简洁，支持模块多，开发效率高，易于修改，适合作为开发爬虫的语言。</p>
-<h2 id="http协议"><a class="markdownIt-Anchor" href="#http协议"></a> http协议</h2>
-<p>http协议：超文本传输协议（英文：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP是万维网的数据通信的基础。</p>
-<h3 id="http工作原理"><a class="markdownIt-Anchor" href="#http工作原理"></a> http工作原理</h3>
-<p>以下是 HTTP 请求/响应的步骤：</p>
+<h3 id="为什么用python写网络爬虫"><a href="#为什么用python写网络爬虫" class="headerlink" title="为什么用python写网络爬虫"></a>为什么用python写网络爬虫</h3><p>爬虫是工具性程序，对速度和效率要求高，PHP对对线程、异步支持不是很好，并发处理能力弱；JAVA语言笨重，代码量大，重构成本高；C/C++学习和开发成本高；Python代码简洁，支持模块多，开发效率高，易于修改，适合作为开发爬虫的语言。</p>
+<h2 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h2><p>http协议：超文本传输协议（英文：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP是万维网的数据通信的基础。</p>
+<h3 id="http工作原理"><a href="#http工作原理" class="headerlink" title="http工作原理"></a>http工作原理</h3><p>以下是 HTTP 请求/响应的步骤：</p>
 <ol>
-<li>客户端连接到Web服务器<br />
-一个HTTP客户端，通常是浏览器，与Web服务器的HTTP端口（默认为80）建立一个TCP套接字连接。例如，<a href="http://www.baidu.com">http://www.baidu.com</a>。<br />
-（注意：http协议默认端口为80，https协议默认端口为443）</li>
-<li>发送HTTP请求<br />
-通过TCP套接字，客户端向Web服务器发送一个文本的请求报文，一个请求报文由请求行、请求头部、空行和请求数据4部分组成。</li>
-<li>服务器接受请求并返回HTTP响应<br />
-Web服务器解析请求，定位请求资源。服务器将资源复本写到TCP套接字，由客户端读取。一个响应由状态行、响应头部、空行和响应数据4部分组成。</li>
-<li>释放连接TCP连接<br />
-若connection 模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求;</li>
-<li>客户端浏览器解析HTML内容<br />
-客户端浏览器首先解析状态行，查看表明请求是否成功的状态代码。然后解析每一个响应头，响应头告知以下为若干字节的HTML文档和文档的字符集。客户端浏览器读取响应数据HTML，根据HTML的语法对其进行格式化，并在浏览器窗口中显示。</li>
+<li>客户端连接到Web服务器<br>一个HTTP客户端，通常是浏览器，与Web服务器的HTTP端口（默认为80）建立一个TCP套接字连接。例如，<a target="_blank" rel="noopener" href="http://www.baidu.com./">http://www.baidu.com。</a><br>（注意：http协议默认端口为80，https协议默认端口为443）</li>
+<li>发送HTTP请求<br>通过TCP套接字，客户端向Web服务器发送一个文本的请求报文，一个请求报文由请求行、请求头部、空行和请求数据4部分组成。</li>
+<li>服务器接受请求并返回HTTP响应<br>Web服务器解析请求，定位请求资源。服务器将资源复本写到TCP套接字，由客户端读取。一个响应由状态行、响应头部、空行和响应数据4部分组成。</li>
+<li>释放连接TCP连接<br>若connection 模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求;</li>
+<li>客户端浏览器解析HTML内容<br>客户端浏览器首先解析状态行，查看表明请求是否成功的状态代码。然后解析每一个响应头，响应头告知以下为若干字节的HTML文档和文档的字符集。客户端浏览器读取响应数据HTML，根据HTML的语法对其进行格式化，并在浏览器窗口中显示。</li>
 </ol>
 <p>例如：在浏览器地址栏键入URL，按下回车之后会经历以下流程：</p>
 <ol>
@@ -298,12 +280,11 @@ Web服务器解析请求，定位请求资源。服务器将资源复本写到TC
 <li>浏览器发出读取文件(URL 中域名后面部分对应的文件)的HTTP 请求，该请求报文作为 TCP 三次握手的第三个报文的数据发送给服务器;</li>
 <li>服务器对浏览器请求作出响应，并把对应的 html 文本发送给浏览器;</li>
 <li>释放 TCP连接;</li>
-<li>浏览器将该 html 文本并显示内容;</li>
+<li>浏览器将该 html 文本并显示内容; </li>
 </ol>
-<h3 id="url"><a class="markdownIt-Anchor" href="#url"></a> URL</h3>
-<p>URL是Uniform Resource Locator的简写，即统一资源定位器</p>
+<h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><p>URL是Uniform Resource Locator的简写，即统一资源定位器</p>
 <p>URL的组成：</p>
-<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/http-url.png" alt="URL的组成" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/http-url.png" class="lozad post-image"></p>
+<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/http-url.png" alt="URL的组成" srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/http-url.png" class="lozad post-image"></p>
 <ul>
 <li>protocol：协议，例如：http</li>
 <li>hostname：主机地址，可以是域名，也可以是IP地址，例如：<code>www.baidu.com</code></li>
@@ -313,151 +294,79 @@ Web服务器解析请求，定位请求资源。服务器将资源复本写到TC
 <li>query:查询字符串,如果需要从服务器那里查询内容，在这里编辑,例如：<code>www.baidu.com/s?wd=python</code>，这里的<code>wd=python</code>就是查询字符串</li>
 <li>fragment:片段,网页中可能会分为不同的片段，如果想访问网页后直接到达指定位置，可以在这部分设置，例子的话可以参考百度百科通过目录跳转的方法，会在URL后面加上#1，#2等，这是前端用来页面定位的，后台一般不用管</li>
 </ul>
-<div class="post-note note-info"><p>我们在浏览器上输入网址的时候并没有这么复杂，那是因为浏览器会对内容进行自动补全；<br />在浏览器请求一个URL，浏览器回对URL进行编码，除英文，数字和部分符号外，其他的全部使用百分号+十六进制码值进行编码。</p></div>
-<h3 id="http请求协议"><a class="markdownIt-Anchor" href="#http请求协议"></a> HTTP请求协议</h3>
-<h4 id="请求方法"><a class="markdownIt-Anchor" href="#请求方法"></a> 请求方法</h4>
-<p>请求数据有多种方法，常用的有<code>GET</code>和<code>POST</code></p>
+<div class="post-note note-info"><p>我们在浏览器上输入网址的时候并没有这么复杂，那是因为浏览器会对内容进行自动补全；<br>在浏览器请求一个URL，浏览器回对URL进行编码，除英文，数字和部分符号外，其他的全部使用百分号+十六进制码值进行编码。</p></div>
+
+<h3 id="HTTP请求协议"><a href="#HTTP请求协议" class="headerlink" title="HTTP请求协议"></a>HTTP请求协议</h3><h4 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h4><p>请求数据有多种方法，常用的有<code>GET</code>和<code>POST</code></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">序号</th>
-<th style="text-align:left">方法</th>
-<th style="text-align:left">描述</th>
+<th align="left">序号</th>
+<th align="left">方法</th>
+<th align="left">描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:left"><mark>GET</mark></td>
-<td style="text-align:left">请求指定的页面信息，并返回实体主体。</td>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">==GET==</td>
+<td align="left">请求指定的页面信息，并返回实体主体。</td>
 </tr>
 <tr>
-<td style="text-align:left">2</td>
-<td style="text-align:left">HEAD</td>
-<td style="text-align:left">类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
+<td align="left">2</td>
+<td align="left">HEAD</td>
+<td align="left">类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
 </tr>
 <tr>
-<td style="text-align:left">3</td>
-<td style="text-align:left"><mark>POST</mark></td>
-<td style="text-align:left">向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。</td>
+<td align="left">3</td>
+<td align="left">==POST==</td>
+<td align="left">向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。</td>
 </tr>
 <tr>
-<td style="text-align:left">4</td>
-<td style="text-align:left">PUT</td>
-<td style="text-align:left">从客户端向服务器传送的数据取代指定的文档的内容。</td>
+<td align="left">4</td>
+<td align="left">PUT</td>
+<td align="left">从客户端向服务器传送的数据取代指定的文档的内容。</td>
 </tr>
 <tr>
-<td style="text-align:left">5</td>
-<td style="text-align:left">DELETE</td>
-<td style="text-align:left">请求服务器删除指定的页面。</td>
+<td align="left">5</td>
+<td align="left">DELETE</td>
+<td align="left">请求服务器删除指定的页面。</td>
 </tr>
 <tr>
-<td style="text-align:left">6</td>
-<td style="text-align:left">CONNECT</td>
-<td style="text-align:left">HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器。</td>
+<td align="left">6</td>
+<td align="left">CONNECT</td>
+<td align="left">HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器。</td>
 </tr>
 <tr>
-<td style="text-align:left">7</td>
-<td style="text-align:left">OPTIONS</td>
-<td style="text-align:left">允许客户端查看服务器的性能。</td>
+<td align="left">7</td>
+<td align="left">OPTIONS</td>
+<td align="left">允许客户端查看服务器的性能。</td>
 </tr>
 <tr>
-<td style="text-align:left">8</td>
-<td style="text-align:left">TRACE</td>
-<td style="text-align:left">回显服务器收到的请求，主要用于测试或诊断。</td>
+<td align="left">8</td>
+<td align="left">TRACE</td>
+<td align="left">回显服务器收到的请求，主要用于测试或诊断。</td>
 </tr>
 <tr>
-<td style="text-align:left">9</td>
-<td style="text-align:left">PATCH</td>
-<td style="text-align:left">是对 PUT 方法的补充，用来对已知资源进行局部更新 。</td>
+<td align="left">9</td>
+<td align="left">PATCH</td>
+<td align="left">是对 PUT 方法的补充，用来对已知资源进行局部更新 。</td>
 </tr>
-</tbody>
-</table>
-<h4 id="响应状态码"><a class="markdownIt-Anchor" href="#响应状态码"></a> 响应状态码</h4>
-<h5 id="请求收到继续处理"><a class="markdownIt-Anchor" href="#请求收到继续处理"></a> 请求收到，继续处理：</h5>
-<blockquote>
-<p>100      客户端必须继续发出请求<br />
-101      客户端要求服务器根据请求转换HTTP协议版本</p>
+</tbody></table>
+<h4 id="响应状态码"><a href="#响应状态码" class="headerlink" title="响应状态码"></a>响应状态码</h4><h5 id="请求收到，继续处理："><a href="#请求收到，继续处理：" class="headerlink" title="请求收到，继续处理："></a>请求收到，继续处理：</h5><blockquote>
+<p>100      客户端必须继续发出请求<br>101      客户端要求服务器根据请求转换HTTP协议版本</p>
 </blockquote>
-<h5 id="操作成功收到分析接受"><a class="markdownIt-Anchor" href="#操作成功收到分析接受"></a> 操作成功收到，分析，接受：</h5>
-<blockquote>
-<p><mark>200      交易成功</mark><br />
-201      提示知道新文件的URL<br />
-202      接受和处理、但处理未完成<br />
-203      返回信息不确定或不完整<br />
-204      请求收到，但返回信息为空<br />
-205      服务器完成了请求，用户代理必须复位当前已经浏览过的文件<br />
-206      服务器已经完成了部分用户的GET请求</p>
+<h5 id="操作成功收到，分析，接受："><a href="#操作成功收到，分析，接受：" class="headerlink" title="操作成功收到，分析，接受："></a>操作成功收到，分析，接受：</h5><blockquote>
+<p>==200      交易成功==<br>201      提示知道新文件的URL<br>202      接受和处理、但处理未完成<br>203      返回信息不确定或不完整<br>204      请求收到，但返回信息为空<br>205      服务器完成了请求，用户代理必须复位当前已经浏览过的文件<br>206      服务器已经完成了部分用户的GET请求</p>
 </blockquote>
-<h5 id="重定向"><a class="markdownIt-Anchor" href="#重定向"></a> 重定向：</h5>
-<blockquote>
-<p>300      请求的资源可在多处得到<br />
-<mark>301      永久重定向，在Location响应首部的值仍为当前URL(隐式重定向)</mark><br />
-<mark>302      临时重定向，在Location响应首部的值仍为新的URL(显示重定向)</mark><br />
-303      建议客户端访问其他URL或访问方式<br />
-304      Not Modified 请求的资源没有改变 可以继续使用缓存<br />
-305      请求的资源必须从服务器指定的地址得到<br />
-306      前一版本HTTP中使用的代码，现行版本中不再使用<br />
-307      声明请求的资源临时性删除</p>
+<h5 id="重定向："><a href="#重定向：" class="headerlink" title="重定向："></a>重定向：</h5><blockquote>
+<p>300      请求的资源可在多处得到<br>==301      永久重定向，在Location响应首部的值仍为当前URL(隐式重定向)==<br>==302      临时重定向，在Location响应首部的值仍为新的URL(显示重定向)==<br>303      建议客户端访问其他URL或访问方式<br>304      Not Modified 请求的资源没有改变 可以继续使用缓存<br>305      请求的资源必须从服务器指定的地址得到<br>306      前一版本HTTP中使用的代码，现行版本中不再使用<br>307      声明请求的资源临时性删除</p>
 </blockquote>
-<h5 id="客户端错误"><a class="markdownIt-Anchor" href="#客户端错误"></a> 客户端错误：</h5>
-<blockquote>
-<p><mark>400      错误请求，如语法错误</mark><br />
-401      未授权<br />
-HTTP 401.1    未授权，登录失败<br />
-HTTP 401.2    未授权，服务器配置问题导致登录失败<br />
-HTTP 401.3    ACL  禁止访问资源<br />
-HTTP 401.4    未授权  授权被筛选器拒绝<br />
-HTTP 401.5    未授权  ISAPI或CGI授权失败<br />
-402      保留有效ChargeTo头响应<br />
-<mark>403      禁止访问</mark><br />
-HTTP 403.1    禁止访问  禁止可执行访问<br />
-HTTP 403.2    禁止访问  禁止读访问<br />
-HTTP 403.3    禁止访问  禁止写访问<br />
-HTTP 403.4    禁止访问  要求SSL<br />
-HTTP 403.5    禁止访问  要求SSL 128<br />
-HTTP 403.6    禁止访问  IP地址被拒绝<br />
-HTTP 403.7    禁止访问  要求客户端证书<br />
-HTTP 403.8    禁止访问  禁止站点访问<br />
-HTTP 403.9    禁止访问  连接的用户过多<br />
-HTTP 403.10   禁止访问  配置无效<br />
-HTTP 403.11   禁止访问  密码更改<br />
-HTTP 403.12   禁止访问  映射器拒绝访问<br />
-HTTP 403.13   禁止访问  客户端证书已被吊销<br />
-HTTP 403.15   禁止访问  客户端访问许可过多<br />
-HTTP 403.16   禁止访问  客户端证书不可信或者无效<br />
-HTTP 403.17   禁止访问  客户端证书已经到期或者尚未生效<br />
-<mark>404       没有发现文件、查询或URL</mark><br />
-405       用户在Request-Line字段定义的方法不允许<br />
-406       根据用户发送的Accept拖，请求资源不可访问<br />
-407       类似401，用户必须首先在代理服务器上得到授权<br />
-408       客户端没有在用户指定的饿时间内完成请求<br />
-409       对当前资源状态，请求不能完成<br />
-410       服务器上不再有此资源且无进一步的参考地址<br />
-411       服务器拒绝用户定义的Content-Length属性请求 <br />
-412       一个或多个请求头字段在当前请求中错误<br />
-413       请求的资源大于服务器允许的大小<br />
-414       请求的资源URL长于服务器允许的长度<br />
-415       请求资源不支持请求项目格式<br />
-416       请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，       请求也不包含If-Range请求头字段<br />
-417       服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求长</p>
+<h5 id="客户端错误："><a href="#客户端错误：" class="headerlink" title="客户端错误："></a>客户端错误：</h5><blockquote>
+<p>==400      错误请求，如语法错误==<br>401      未授权<br>HTTP 401.1    未授权，登录失败<br>HTTP 401.2    未授权，服务器配置问题导致登录失败<br>HTTP 401.3    ACL  禁止访问资源<br>HTTP 401.4    未授权  授权被筛选器拒绝<br>HTTP 401.5    未授权  ISAPI或CGI授权失败<br>402      保留有效ChargeTo头响应<br>==403      禁止访问==<br>HTTP 403.1    禁止访问  禁止可执行访问<br>HTTP 403.2    禁止访问  禁止读访问<br>HTTP 403.3    禁止访问  禁止写访问<br>HTTP 403.4    禁止访问  要求SSL<br>HTTP 403.5    禁止访问  要求SSL 128<br>HTTP 403.6    禁止访问  IP地址被拒绝<br>HTTP 403.7    禁止访问  要求客户端证书<br>HTTP 403.8    禁止访问  禁止站点访问<br>HTTP 403.9    禁止访问  连接的用户过多<br>HTTP 403.10   禁止访问  配置无效<br>HTTP 403.11   禁止访问  密码更改<br>HTTP 403.12   禁止访问  映射器拒绝访问<br>HTTP 403.13   禁止访问  客户端证书已被吊销<br>HTTP 403.15   禁止访问  客户端访问许可过多<br>HTTP 403.16   禁止访问  客户端证书不可信或者无效<br>HTTP 403.17   禁止访问  客户端证书已经到期或者尚未生效<br>==404       没有发现文件、查询或URL==<br>405       用户在Request-Line字段定义的方法不允许<br>406       根据用户发送的Accept拖，请求资源不可访问<br>407       类似401，用户必须首先在代理服务器上得到授权<br>408       客户端没有在用户指定的饿时间内完成请求<br>409       对当前资源状态，请求不能完成<br>410       服务器上不再有此资源且无进一步的参考地址<br>411       服务器拒绝用户定义的Content-Length属性请求 <br>412       一个或多个请求头字段在当前请求中错误<br>413       请求的资源大于服务器允许的大小<br>414       请求的资源URL长于服务器允许的长度<br>415       请求资源不支持请求项目格式<br>416       请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，       请求也不包含If-Range请求头字段<br>417       服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求长</p>
 </blockquote>
-<h5 id="服务器端错误"><a class="markdownIt-Anchor" href="#服务器端错误"></a> 服务器端错误:</h5>
-<blockquote>
-<p><mark>500 - 内部服务器错误</mark><br />
-HTTP 500.100       内部服务器错误 <br />
-HTTP 500-11       服务器关闭<br />
-HTTP 500-12       应用程序重新启动<br />
-HTTP 500-13       服务器太忙<br />
-HTTP 500-14       应用程序无效<br />
-HTTP 500-15       不允许请求 <br />
-501       未实现<br />
-502       网关错误<br />
-503       服务不可用<br />
-504       网关超时</p>
+<h5 id="服务器端错误"><a href="#服务器端错误" class="headerlink" title="服务器端错误:"></a>服务器端错误:</h5><blockquote>
+<p>==500 - 内部服务器错误==<br>HTTP 500.100       内部服务器错误 <br>HTTP 500-11       服务器关闭<br>HTTP 500-12       应用程序重新启动<br>HTTP 500-13       服务器太忙<br>HTTP 500-14       应用程序无效<br>HTTP 500-15       不允许请求 <br>501       未实现<br>502       网关错误<br>503       服务不可用<br>504       网关超时</p>
 </blockquote>
-<h4 id="请求头参数"><a class="markdownIt-Anchor" href="#请求头参数"></a> 请求头参数</h4>
-<p>在http协议中，向服务器发送一个请求，数据分为三部分，第一个会把数据放在URL中，第二个是在body中（post请求），第三个是放在head中，head即为请求头，爬虫常用请求头参数如下：</p>
+<h4 id="请求头参数"><a href="#请求头参数" class="headerlink" title="请求头参数"></a>请求头参数</h4><p>在http协议中，向服务器发送一个请求，数据分为三部分，第一个会把数据放在URL中，第二个是在body中（post请求），第三个是放在head中，head即为请求头，爬虫常用请求头参数如下：</p>
 <table>
 <thead>
 <tr>
@@ -466,8 +375,7 @@ HTTP 500-15       不允许请求 <br />
 <th>示例</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Cookie</td>
 <td>HTTP请求发送时，会把保存在该请求域名下的所有cookie值一起发送给web服务器。</td>
 <td>Cookie: $Version=1; Skin=new;</td>
@@ -475,31 +383,24 @@ HTTP 500-15       不允许请求 <br />
 <tr>
 <td>Referer</td>
 <td>先前网页的地址，当前请求网页紧随其后，即来路</td>
-<td>Referer: <a href="http://www.example.com/archives">http://www.example.com/archives</a>…</td>
+<td>Referer: <a target="_blank" rel="noopener" href="http://www.example.com/archives">http://www.example.com/archives</a>…</td>
 </tr>
 <tr>
 <td>User-Agent</td>
 <td>User-Agent的内容包含发出请求的用户信息,包含浏览器名称</td>
 <td>User-Agent: Mozilla/5.0 (Linux; X11)</td>
 </tr>
-</tbody>
-</table>
-<h2 id="浏览器开发者工具"><a class="markdownIt-Anchor" href="#浏览器开发者工具"></a> 浏览器开发者工具</h2>
-<p>chrome浏览器的开发者工具可以在<code>右键</code>→<code>检查</code>调出，也可以<code>f12</code>或者<br />
-<code>Ctrl</code>+<code>Shift</code>+<code>I</code>（进入开发者工具）<br />
-<code>Ctrl</code>+<code>Shift</code>+<code>J</code> （进入开发者工具，并定位到控制台Console）</p>
-<h3 id="开发者工具简要说明"><a class="markdownIt-Anchor" href="#开发者工具简要说明"></a> 开发者工具简要说明：</h3>
-<ul>
+</tbody></table>
+<h2 id="浏览器开发者工具"><a href="#浏览器开发者工具" class="headerlink" title="浏览器开发者工具"></a>浏览器开发者工具</h2><p>chrome浏览器的开发者工具可以在<code>右键</code>→<code>检查</code>调出，也可以<code>f12</code>或者<br><code>Ctrl</code>+<code>Shift</code>+<code>I</code>（进入开发者工具）<br><code>Ctrl</code>+<code>Shift</code>+<code>J</code> （进入开发者工具，并定位到控制台Console）</p>
+<h3 id="开发者工具简要说明："><a href="#开发者工具简要说明：" class="headerlink" title="开发者工具简要说明："></a>开发者工具简要说明：</h3><ul>
 <li>Elements 元素，显示网页源码</li>
 <li>Consule 控制台，跟踪查看js代码</li>
 <li>Sources 显示网页文件</li>
 <li>Network 查看网页请求</li>
 </ul>
-<h3 id="示例"><a class="markdownIt-Anchor" href="#示例"></a> 示例</h3>
-<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools.png" alt="chrome开发者工具" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools.png" class="lozad post-image"></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools.png" alt="chrome开发者工具" srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools.png" class="lozad post-image"></p>
 <p>如图是开发者工具的界面，红框标注的是上文提到的http请求的相关参数。</p>
-<h2 id="爬虫使用时的法律要求"><a class="markdownIt-Anchor" href="#爬虫使用时的法律要求"></a> 爬虫使用时的法律要求</h2>
-<p>法律方面参考《数据安全管理办法（征求意见稿）》，总之就是禁止恶意爬虫，所谓恶意爬虫就是涉及到以下方面</p>
+<h2 id="爬虫使用时的法律要求"><a href="#爬虫使用时的法律要求" class="headerlink" title="爬虫使用时的法律要求"></a>爬虫使用时的法律要求</h2><p>法律方面参考《数据安全管理办法（征求意见稿）》，总之就是禁止恶意爬虫，所谓恶意爬虫就是涉及到以下方面</p>
 <ol>
 <li>侵犯著作权</li>
 <li>侵犯商业秘密</li>
@@ -507,23 +408,15 @@ HTTP 500-15       不允许请求 <br />
 <li>构成不正当竞争</li>
 <li>侵入计算机系统，构成刑事犯罪</li>
 </ol>
-<p>同时遵守Robots协议，robots.txt协议并不是一个规范，而是约定俗成的东西，网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取：<br />
-根据协议，网站管理员可以在网站域名的根目录下放一个robots.txt 文本文件，里面可以指定不同的网络爬虫能访问的页面和禁止访问的页面，指定的页面由正则表达式表示。网络爬虫在采集这个网站之前，首先获取到这个文件，然后解析到其中的规则，然后根据规则来采集网站的数据。</p>
-<h2 id="todo"><a class="markdownIt-Anchor" href="#todo"></a> TODO</h2>
-<p>⛳到这里学习爬虫的铺垫就打好了，后面就从python中与爬虫相关的库开始学起</p>
-<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" alt="to be continued,Photo by Reuben Juarez on Unsplash" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" class="lozad post-image"></p>
+<p>  同时遵守Robots协议，robots.txt协议并不是一个规范，而是约定俗成的东西，网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取：<br>根据协议，网站管理员可以在网站域名的根目录下放一个robots.txt 文本文件，里面可以指定不同的网络爬虫能访问的页面和禁止访问的页面，指定的页面由正则表达式表示。网络爬虫在采集这个网站之前，首先获取到这个文件，然后解析到其中的规则，然后根据规则来采集网站的数据。</p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>⛳到这里学习爬虫的铺垫就打好了，后面就从python中与爬虫相关的库开始学起</p>
+<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" alt="to be continued,Photo by Reuben Juarez on Unsplash" srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" class="lozad post-image"></p>
 <p>   </p>
-<hr />
-<p>参考：<br />
-[1] <a href="https://study.163.com/course/introduction/1004530011.htm">21天搞定Python分布爬虫</a><br />
-[2] <a href="https://www.zhihu.com/question/24098641/answer/453634446">通俗的讲，网络爬虫到底是什么？.史中</a><br />
-[3] <a href="https://www.cnblogs.com/an-wen/p/11180076.html">HTTP协议超级详解.爱文飞翔</a><br />
-[4] <a href="https://www.cnblogs.com/woodyblog/p/6005414.html">URL的组成格式.wudipmd</a><br />
-[5] <a href="https://www.runoob.com/http/http-methods.html">HTTP 请求方法.菜鸟教程</a><br />
-[6] <a href="https://blog.51cto.com/shjia/1432670">Apache之HTTP协议</a><br />
-[7] <a href="https://www.cnblogs.com/yunlongaimeng/p/10904558.html">Header:请求头参数详解.brucelong</a><br />
-[8] <a href="http://www.cac.gov.cn/2019-05/28/c_1124546022.htm">国家互联网信息办公室关于《数据安全管理办法（征求意见稿）》公开征求意见的通知</a><br />
-[9] <a href="http://www.cac.gov.cn/2019-06/16/c_1124630015.htm">网络爬虫的法律规制.2019.06.16</a></p>
+
+
+
+<hr>
+<p>参考：<br>[1] <a target="_blank" rel="noopener" href="https://study.163.com/course/introduction/1004530011.htm">21天搞定Python分布爬虫</a><br>[2] <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/24098641/answer/453634446">通俗的讲，网络爬虫到底是什么？.史中</a><br>[3] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/an-wen/p/11180076.html">HTTP协议超级详解.爱文飞翔</a><br>[4] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/woodyblog/p/6005414.html">URL的组成格式.wudipmd</a><br>[5] <a target="_blank" rel="noopener" href="https://www.runoob.com/http/http-methods.html">HTTP 请求方法.菜鸟教程</a><br>[6] <a target="_blank" rel="noopener" href="https://blog.51cto.com/shjia/1432670">Apache之HTTP协议</a><br>[7] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/yunlongaimeng/p/10904558.html">Header:请求头参数详解.brucelong</a><br>[8] <a target="_blank" rel="noopener" href="http://www.cac.gov.cn/2019-05/28/c_1124546022.htm">国家互联网信息办公室关于《数据安全管理办法（征求意见稿）》公开征求意见的通知</a><br>[9] <a target="_blank" rel="noopener" href="http://www.cac.gov.cn/2019-06/16/c_1124630015.htm">网络爬虫的法律规制.2019.06.16</a></p>
 
   </div>
   <div>
@@ -549,7 +442,7 @@ HTTP 500-15       不允许请求 <br />
 
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 网络爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text"> 网络爬虫的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.3.</span> <span class="toc-text"> 为什么用python写网络爬虫</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text"> http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text"> http工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#url"><span class="toc-number">2.2.</span> <span class="toc-text"> URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.3.</span> <span class="toc-text"> HTTP请求协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 请求方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 响应状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%94%B6%E5%88%B0%E7%BB%A7%E7%BB%AD%E5%A4%84%E7%90%86"><span class="toc-number">2.3.2.1.</span> <span class="toc-text"> 请求收到，继续处理：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%88%90%E5%8A%9F%E6%94%B6%E5%88%B0%E5%88%86%E6%9E%90%E6%8E%A5%E5%8F%97"><span class="toc-number">2.3.2.2.</span> <span class="toc-text"> 操作成功收到，分析，接受：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">2.3.2.3.</span> <span class="toc-text"> 重定向：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="toc-number">2.3.2.4.</span> <span class="toc-text"> 客户端错误：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="toc-number">2.3.2.5.</span> <span class="toc-text"> 服务器端错误:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.3.</span> <span class="toc-text"> 请求头参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7"><span class="toc-number">3.</span> <span class="toc-text"> 浏览器开发者工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E"><span class="toc-number">3.1.</span> <span class="toc-text"> 开发者工具简要说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text"> 示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E6%B3%95%E5%BE%8B%E8%A6%81%E6%B1%82"><span class="toc-number">4.</span> <span class="toc-text"> 爬虫使用时的法律要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#todo"><span class="toc-number">5.</span> <span class="toc-text"> TODO</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text">网络爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.</span> <span class="toc-text">什么是网络爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">网络爬虫的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.3.</span> <span class="toc-text">为什么用python写网络爬虫</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">http工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL"><span class="toc-number">2.2.</span> <span class="toc-text">URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.3.</span> <span class="toc-text">HTTP请求协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text">请求方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text">响应状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%94%B6%E5%88%B0%EF%BC%8C%E7%BB%A7%E7%BB%AD%E5%A4%84%E7%90%86%EF%BC%9A"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">请求收到，继续处理：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%88%90%E5%8A%9F%E6%94%B6%E5%88%B0%EF%BC%8C%E5%88%86%E6%9E%90%EF%BC%8C%E6%8E%A5%E5%8F%97%EF%BC%9A"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">操作成功收到，分析，接受：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%9A"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">重定向：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF%EF%BC%9A"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">客户端错误：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="toc-number">2.3.2.5.</span> <span class="toc-text">服务器端错误:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.3.</span> <span class="toc-text">请求头参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7"><span class="toc-number">3.</span> <span class="toc-text">浏览器开发者工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">开发者工具简要说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E6%B3%95%E5%BE%8B%E8%A6%81%E6%B1%82"><span class="toc-number">4.</span> <span class="toc-text">爬虫使用时的法律要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-number">5.</span> <span class="toc-text">TODO</span></a></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -582,7 +475,7 @@ HTTP 500-15       不允许请求 <br />
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 网络爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text"> 网络爬虫的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.3.</span> <span class="toc-text"> 为什么用python写网络爬虫</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text"> http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text"> http工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#url"><span class="toc-number">2.2.</span> <span class="toc-text"> URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.3.</span> <span class="toc-text"> HTTP请求协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 请求方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 响应状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%94%B6%E5%88%B0%E7%BB%A7%E7%BB%AD%E5%A4%84%E7%90%86"><span class="toc-number">2.3.2.1.</span> <span class="toc-text"> 请求收到，继续处理：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%88%90%E5%8A%9F%E6%94%B6%E5%88%B0%E5%88%86%E6%9E%90%E6%8E%A5%E5%8F%97"><span class="toc-number">2.3.2.2.</span> <span class="toc-text"> 操作成功收到，分析，接受：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">2.3.2.3.</span> <span class="toc-text"> 重定向：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="toc-number">2.3.2.4.</span> <span class="toc-text"> 客户端错误：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="toc-number">2.3.2.5.</span> <span class="toc-text"> 服务器端错误:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.3.</span> <span class="toc-text"> 请求头参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7"><span class="toc-number">3.</span> <span class="toc-text"> 浏览器开发者工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E"><span class="toc-number">3.1.</span> <span class="toc-text"> 开发者工具简要说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text"> 示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E6%B3%95%E5%BE%8B%E8%A6%81%E6%B1%82"><span class="toc-number">4.</span> <span class="toc-text"> 爬虫使用时的法律要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#todo"><span class="toc-number">5.</span> <span class="toc-text"> TODO</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text">网络爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.</span> <span class="toc-text">什么是网络爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">网络爬虫的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.3.</span> <span class="toc-text">为什么用python写网络爬虫</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">http工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL"><span class="toc-number">2.2.</span> <span class="toc-text">URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.3.</span> <span class="toc-text">HTTP请求协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text">请求方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text">响应状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%94%B6%E5%88%B0%EF%BC%8C%E7%BB%A7%E7%BB%AD%E5%A4%84%E7%90%86%EF%BC%9A"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">请求收到，继续处理：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%88%90%E5%8A%9F%E6%94%B6%E5%88%B0%EF%BC%8C%E5%88%86%E6%9E%90%EF%BC%8C%E6%8E%A5%E5%8F%97%EF%BC%9A"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">操作成功收到，分析，接受：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%9A"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">重定向：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF%EF%BC%9A"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">客户端错误：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="toc-number">2.3.2.5.</span> <span class="toc-text">服务器端错误:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.3.</span> <span class="toc-text">请求头参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7"><span class="toc-number">3.</span> <span class="toc-text">浏览器开发者工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">开发者工具简要说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E6%B3%95%E5%BE%8B%E8%A6%81%E6%B1%82"><span class="toc-number">4.</span> <span class="toc-text">爬虫使用时的法律要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-number">5.</span> <span class="toc-text">TODO</span></a></li></ol>
     </div>
   </article>
   
@@ -592,7 +485,7 @@ HTTP 500-15       不允许请求 <br />
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/python">
+      <a href="/categories/python/">
         <div class="categories-list-item">
           python
           <span class="categories-list-item-badge">4</span>
@@ -608,17 +501,17 @@ HTTP 500-15       不允许请求 <br />
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
-    <a href="\tags\python" title="python"><div class="tags-list-item">python</div></a>
+    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
     
-    <a href="\tags\网络爬虫" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
+    <a href="/tags/网络爬虫/" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
     
-    <a href="\tags\urllib" title="urllib"><div class="tags-list-item">urllib</div></a>
+    <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
     
-    <a href="\tags\IP代理" title="IP代理"><div class="tags-list-item">IP代理</div></a>
+    <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
     
-    <a href="\tags\文件读取" title="文件读取"><div class="tags-list-item">文件读取</div></a>
+    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
     
-    <a href="\tags\http协议" title="http协议"><div class="tags-list-item">http协议</div></a>
+    <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
     
   </div>
 </div>
@@ -633,7 +526,7 @@ HTTP 500-15       不允许请求 <br />
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text"> 网络爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.</span> <span class="toc-text"> 什么是网络爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text"> 网络爬虫的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.3.</span> <span class="toc-text"> 为什么用python写网络爬虫</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text"> http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text"> http工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#url"><span class="toc-number">2.2.</span> <span class="toc-text"> URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.3.</span> <span class="toc-text"> HTTP请求协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 请求方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 响应状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%94%B6%E5%88%B0%E7%BB%A7%E7%BB%AD%E5%A4%84%E7%90%86"><span class="toc-number">2.3.2.1.</span> <span class="toc-text"> 请求收到，继续处理：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%88%90%E5%8A%9F%E6%94%B6%E5%88%B0%E5%88%86%E6%9E%90%E6%8E%A5%E5%8F%97"><span class="toc-number">2.3.2.2.</span> <span class="toc-text"> 操作成功收到，分析，接受：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">2.3.2.3.</span> <span class="toc-text"> 重定向：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="toc-number">2.3.2.4.</span> <span class="toc-text"> 客户端错误：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="toc-number">2.3.2.5.</span> <span class="toc-text"> 服务器端错误:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.3.</span> <span class="toc-text"> 请求头参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7"><span class="toc-number">3.</span> <span class="toc-text"> 浏览器开发者工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E"><span class="toc-number">3.1.</span> <span class="toc-text"> 开发者工具简要说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text"> 示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E6%B3%95%E5%BE%8B%E8%A6%81%E6%B1%82"><span class="toc-number">4.</span> <span class="toc-text"> 爬虫使用时的法律要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#todo"><span class="toc-number">5.</span> <span class="toc-text"> TODO</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.</span> <span class="toc-text">网络爬虫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.</span> <span class="toc-text">什么是网络爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">网络爬虫的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8python%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB"><span class="toc-number">1.3.</span> <span class="toc-text">为什么用python写网络爬虫</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">http工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL"><span class="toc-number">2.2.</span> <span class="toc-text">URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.3.</span> <span class="toc-text">HTTP请求协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text">请求方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text">响应状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%94%B6%E5%88%B0%EF%BC%8C%E7%BB%A7%E7%BB%AD%E5%A4%84%E7%90%86%EF%BC%9A"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">请求收到，继续处理：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%88%90%E5%8A%9F%E6%94%B6%E5%88%B0%EF%BC%8C%E5%88%86%E6%9E%90%EF%BC%8C%E6%8E%A5%E5%8F%97%EF%BC%9A"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">操作成功收到，分析，接受：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%9A"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">重定向：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF%EF%BC%9A"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">客户端错误：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="toc-number">2.3.2.5.</span> <span class="toc-text">服务器端错误:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.3.</span> <span class="toc-text">请求头参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7"><span class="toc-number">3.</span> <span class="toc-text">浏览器开发者工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">开发者工具简要说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E6%B3%95%E5%BE%8B%E8%A6%81%E6%B1%82"><span class="toc-number">4.</span> <span class="toc-text">爬虫使用时的法律要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-number">5.</span> <span class="toc-text">TODO</span></a></li></ol>
   </article>
   
   
