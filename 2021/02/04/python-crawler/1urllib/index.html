@@ -232,7 +232,7 @@
     
     
     <span class="dot"></span>
-    <span>1.1k 字</span>
+    <span>1.4k 字</span>
     
   </div>
   
@@ -335,7 +335,9 @@ netloc<span class="token punctuation">:</span> www<span class="token punctuation
 path<span class="token punctuation">:</span> <span class="token operator">/</span>s
 query<span class="token punctuation">:</span> wd<span class="token operator">=</span>demo<span class="token operator">&amp;</span>time<span class="token operator">=</span><span class="token number">2021</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h2><p>Request类是request下一个非常强大的类，用于在请求的时候加上请求头，例如<code>User-Agent</code>，以及<code>POST</code>请求所需要的<code>data</code> </p>
+<h2 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">urllib</span><span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> headers<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> origin_req_host<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> unverifiable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Request类是request下一个非常强大的类，用于在请求的时候加上请求头，例如<code>User-Agent</code>，以及<code>POST</code>请求所需要的<code>data</code> </p>
 <p>示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span> parse
 
@@ -356,8 +358,21 @@ data <span class="token operator">=</span> <span class="token punctuation">&#123
 req <span class="token operator">=</span> request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token string">'POST'</span><span class="token punctuation">)</span>
 resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<p>这段代码用于从“<a target="_blank" rel="noopener" href="https://www.lagou.com/">拉勾网</a>”获取有关“python”的职位信息，拉勾网具有一定反扒机制，比较适合来做练习,关于代码的解释如下：</p>
+<ul>
+<li><p><code>URL</code>、<code>headers</code>、 <code>data</code> 如何获取？</p>
+<p>  如下图，在拉勾网上搜索python，用f12或右键“检查”调出开发者工具，在<code>Network</code>上找到如下的JS文件，职位信息就在这个文件中，可以在<code>Response</code>页面查看职位信息，而<code>URL</code>、<code>headers</code>、 <code>data</code>的信息在<code>Headers</code>中，找的对应项补充在代码中即可</p>
+</li>
+</ul>
 <p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools2.png" alt="从控制台找数据" srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools2.png" class="lozad post-image"></p>
+<ul>
+<li><p>为何在<code>Request</code>中要对<code>data</code>的格式进行处理？<br>  <code>data</code>要先采用<code>urlencode</code>进行编码，但转化之后是<code>unicode</code>字符串，要转化成所支持的<code>bytes</code>数据类型，用<code>encode</code>进行转化</p>
+</li>
+<li><p>最后输出时的<code>decode</code>作用是什么？<br>  默认输出为<code>bytes</code>数据类型，用<code>decode</code>解码成易读的<code>unicode</code>类型并采用<code>UTF-8</code>编码</p>
+</li>
+<li><p><span style="color:RED;">注意：<code>cookie</code>信息这里并没有填，找到自己的<code>cookie</code>填上去即可运行</span></p>
+</li>
+</ul>
 <hr>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.6/library/urllib.html">urllib — URL 处理模块</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="http://www.ityouknow.com/python/2019/11/12/python-spider-Urllib-056.html">urllib 包基本使用.纯洁的微笑</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><a href="https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/">关于read及其它文件读取的方法，参考我的这篇博客</a></span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://blog.csdn.net/zzc15806/article/details/79636417">使用python urlretrieve下载文件.z小白.</a></span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">例如http://www.baidu.com/s;demo1?wd=demo2 中的demo1只能被<code>urlparse</code>获取</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div>
   </div>
