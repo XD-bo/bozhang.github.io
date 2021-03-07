@@ -14,7 +14,7 @@
   <meta property="og:title" content="python爬虫-urllib库">
   
   
-  <meta property="og:url" content="https://vbozhang.github.io/project/2021/02/04/python-crawler/1urllib/index.html">
+  <meta property="og:url" content="https://vbozhang.github.io/2021/02/04/python-crawler/1urllib/index.html">
   
   
   <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg">
@@ -144,7 +144,7 @@
   
   
   
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -232,7 +232,7 @@
     
     
     <span class="dot"></span>
-    <span>1.2k 字</span>
+    <span>1.1k 字</span>
     
   </div>
   
@@ -258,27 +258,28 @@
   
   </header>
   <div id="section" class="post-content">
-    <p>网络爬虫系列的第二篇，使用python自带的urllib库开发爬虫</p>
-<a id="more"></a>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>网络爬虫系列的第二篇，使用python自带的urllib库开发爬虫</p>
+<span id="more"></span>
 <p>这里只做简单的介绍，以便后续使用</p>
 <hr>
 <h2 id="urllib库简介"><a href="#urllib库简介" class="headerlink" title="urllib库简介"></a>urllib库简介</h2><blockquote>
-<p><code>urllib</code> 是一个 Python 内置包，不需要额外安装即可使用，包里面包含了几个用来处理 <code>url</code> 的模块,是一个最基本的网络请求库，可以模拟浏览器的行为，向指定的服务器发送一个请求，并可以保存服务器返回的数据。[^1]</p>
+<p><code>urllib</code> 是一个 Python 内置包，不需要额外安装即可使用，包里面包含了几个用来处理 <code>url</code> 的模块,是一个最基本的网络请求库，可以模拟浏览器的行为，向指定的服务器发送一个请求，并可以保存服务器返回的数据。<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
 </blockquote>
 <ul>
 <li> <code>urllib.request</code>，用来打开和读取 <code>url</code>，意思就是可以用它来模拟发送请求，就像在浏览器里输入网址然后敲击回车一样，获取网页响应内容。</li>
 <li> <code>urllib.error</code>，用来处理 <code>urllib.request</code> 引起的异常，保证程序的正常执行。</li>
 <li> <code>urllib.parse</code>，用来解析 <code>url</code>，可以对 <code>url</code> 进行拆分、合并等。</li>
-<li><code>urllib.robotparse</code>，用来解析 <code>robots.txt</code> 文件，判断网站是否能够进行爬取。[^2]</li>
+<li><code>urllib.robotparse</code>，用来解析 <code>robots.txt</code> 文件，判断网站是否能够进行爬取。<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></li>
 </ul>
 <h2 id="urllib-request-模块"><a href="#urllib-request-模块" class="headerlink" title="urllib.request 模块"></a>urllib.request 模块</h2><h3 id="request-urlopen-函数"><a href="#request-urlopen-函数" class="headerlink" title="request.urlopen 函数"></a>request.urlopen 函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>timeout<span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">,</span> cafile<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> capath<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> cadefault<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> context<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ul>
 <li> <code>url</code>，必选参数，是一个 <code>str</code> 字符串或者<code>Request</code> 对象</li>
 <li> <code>data</code>，如果传递 <code>data</code> 参数，<code>urlopen</code> 将使用 <code>HTTP POST</code> 方式请求，否则为 <code>HTTP GET</code> 请求。</li>
 <li><code>timeout</code>，可选参数，设置超时时间(未设置时使用全局默认超时时间)，以秒为单位计时，若请求超出了设置时间还未得到响应则抛出异常。</li>
 <li>剩余的参数不常用，不再详细介绍</li>
 </ul>
-<p>示例:[^3]</p>
+<p>示例:<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
 
 resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
@@ -289,11 +290,13 @@ resp <span class="token operator">=</span> request<span class="token punctuation
 
 resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>getcode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>运行结果：</p>
 <pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">200<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="request-urlretrieve-函数"><a href="#request-urlretrieve-函数" class="headerlink" title="request.urlretrieve 函数"></a>request.urlretrieve 函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span> filename<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> reporthook<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
-<p>python3中urllib.request模块提供的urlretrieve()函数。urlretrieve()方法直接将远程数据下载到本地。[^4]</p>
+<p>python3中urllib.request模块提供的urlretrieve()函数。urlretrieve()方法直接将远程数据下载到本地。<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></p>
 </blockquote>
 <ul>
 <li>参数url：下载链接地址</li>
@@ -314,8 +317,9 @@ result <span class="token operator">=</span> parse<span class="token punctuation
 <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：</p>
 <pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">name&#x3D;%E5%A7%93%E5%90%8D&amp;age&#x3D;18&amp;greet&#x3D;hello+world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="parse-parse-qs函数"><a href="#parse-parse-qs函数" class="headerlink" title="parse.parse_qs函数"></a>parse.parse_qs函数</h3><p>对URL进行解码，可以理解为<code>urlencode</code>的逆过程</p>
-<h3 id="urlparse和urlsplit函数"><a href="#urlparse和urlsplit函数" class="headerlink" title="urlparse和urlsplit函数"></a>urlparse和urlsplit函数</h3><p>两个函数都用来对URL进行分割，两者用法相同，区别在于<code>urlparse</code>可以分割出URL的<code>params</code>属性，<code>urlsplit</code>则不能[^5]<br>示例：</p>
+<h3 id="urlparse和urlsplit函数"><a href="#urlparse和urlsplit函数" class="headerlink" title="urlparse和urlsplit函数"></a>urlparse和urlsplit函数</h3><p>两个函数都用来对URL进行分割，两者用法相同，区别在于<code>urlparse</code>可以分割出URL的<code>params</code>属性，<code>urlsplit</code>则不能<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup><br>示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
 url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s?wd=demo&amp;time=2021#3'</span>
 result <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
@@ -330,6 +334,7 @@ scheme<span class="token punctuation">:</span> http
 netloc<span class="token punctuation">:</span> www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
 path<span class="token punctuation">:</span> <span class="token operator">/</span>s
 query<span class="token punctuation">:</span> wd<span class="token operator">=</span>demo<span class="token operator">&amp;</span>time<span class="token operator">=</span><span class="token number">2021</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h2><p>Request类是request下一个非常强大的类，用于在请求的时候加上请求头，例如<code>User-Agent</code>，以及<code>POST</code>请求所需要的<code>data</code> </p>
 <p>示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span> parse
@@ -351,10 +356,10 @@ data <span class="token operator">=</span> <span class="token punctuation">&#123
 req <span class="token operator">=</span> request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token string">'POST'</span><span class="token punctuation">)</span>
 resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools2.png" alt="从控制台找数据" srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools2.png" class="lozad post-image"></p>
 <hr>
-<p>[^1]: urllib — URL 处理模块<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.6/library/urllib.html">https://docs.python.org/zh-cn/3.6/library/urllib.html</a><br>[^2]: urllib 包基本使用.纯洁的微笑<a target="_blank" rel="noopener" href="http://www.ityouknow.com/python/2019/11/12/python-spider-Urllib-056.html">http://www.ityouknow.com/python/2019/11/12/python-spider-Urllib-056.html</a><br>[^3]: 关于read及其它文件读取的方法，参考<a href="https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/">https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/</a><br>[^4]: 使用python urlretrieve下载文件.z小白.<a target="_blank" rel="noopener" href="https://blog.csdn.net/zzc15806/article/details/79636417">https://blog.csdn.net/zzc15806/article/details/79636417</a><br>[^5]: 例如<a target="_blank" rel="noopener" href="http://www.baidu.com/s;demo1?wd=demo2">http://www.baidu.com/s;demo1?wd=demo2</a> 中的demo1只能被<code>urlparse</code>获取</p>
-
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">urllib — URL 处理模块<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.6/library/urllib.html">https://docs.python.org/zh-cn/3.6/library/urllib.html</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">urllib 包基本使用.纯洁的微笑<a target="_blank" rel="noopener" href="http://www.ityouknow.com/python/2019/11/12/python-spider-Urllib-056.html">http://www.ityouknow.com/python/2019/11/12/python-spider-Urllib-056.html</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">关于read及其它文件读取的方法，参考<a href="https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/">https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/</a></span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">使用python urlretrieve下载文件.z小白.<a target="_blank" rel="noopener" href="https://blog.csdn.net/zzc15806/article/details/79636417">https://blog.csdn.net/zzc15806/article/details/79636417</a></span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">例如http://www.baidu.com/s;demo1?wd=demo2 中的demo1只能被<code>urlparse</code>获取</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div>
   </div>
   <div>
   
@@ -456,9 +461,9 @@ resp <span class="token operator">=</span> request<span class="token punctuation
     
     <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
     
-    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
-    
     <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
+    
+    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
     
     <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
     
