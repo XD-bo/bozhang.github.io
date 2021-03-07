@@ -131,6 +131,17 @@
   
   
   
+  
+  
+  <link href="/js/lib/prism/prism-tomorrow.min.css" rel="stylesheet" data-prism="prism-tomorrow">
+  
+  
+  
+<link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+
+  
+  
+  
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 
@@ -219,7 +230,7 @@
     
     
     <span class="dot"></span>
-    <span>285 字</span>
+    <span>281 字</span>
     
   </div>
   
@@ -245,25 +256,35 @@
 
 <hr>
 <h2 id="read-方法"><a href="#read-方法" class="headerlink" title="read()方法"></a>read()方法</h2><p>read方法有一个参数：</p>
-<pre class="highlight"><span class="line">f.read(size) <span class="comment"># f为文件对象</span></span><br></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">f<span class="token punctuation">.</span>read<span class="token punctuation">(</span>size<span class="token punctuation">)</span> <span class="token comment"># f为文件对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>可选参数<code>size</code>为数字，表示从已打开文件中读取的字节计数，默认情况下为读取全部<br>示例：<br>example.txt ：</p>
-<pre class="highlight"><span class="line">1 2 3</span><br><span class="line">4 5 6</span><br><span class="line">7 8 9</span><br></pre>
-<pre class="highlight"><span class="line"><span class="keyword">with</span>  <span class="built_in">open</span>(<span class="string">&#x27;example.txt&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.read(<span class="number">6</span>)</span><br><span class="line">    print(content)</span><br></pre>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">1 2 3
+4 5 6
+7 8 9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    content <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：</p>
-<pre class="highlight"><span class="line">1 2 3</span><br><span class="line"> </span><br></pre>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">1 2 3
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>这里空格和回车各算一个字符，共读取6个。</p>
 <h2 id="readline-方法"><a href="#readline-方法" class="headerlink" title="readline()方法"></a>readline()方法</h2><p>readline方法可以从文件中读取整行，包括换行符’\n’</p>
-<pre class="highlight"><span class="line">f.readline(size)</span><br></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span>size<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>size</code>表示读取的字节数，默认情况下为读取一行中的全部字符<br>示例：</p>
-<pre class="highlight"><span class="line"><span class="keyword">with</span>  <span class="built_in">open</span>(<span class="string">&#x27;example.txt&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.readline()</span><br><span class="line">    print(content)</span><br></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    content <span class="token operator">=</span> f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：</p>
-<pre class="highlight"><span class="line">1 2 3</span><br><span class="line"> </span><br></pre>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">1 2 3
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>readline方法会记住上一个readline函数读取的位置，接着读取下一行</p>
 <h2 id="readlines方法"><a href="#readlines方法" class="headerlink" title="readlines方法"></a>readlines方法</h2><p>可以读取多行，没有参数，返回的是所有行组成的列表</p>
 <p>示例：</p>
-<pre class="highlight"><span class="line"><span class="keyword">with</span>  <span class="built_in">open</span>(<span class="string">&#x27;example.txt&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.readlines()</span><br><span class="line">    print(content)</span><br></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    content <span class="token operator">=</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：</p>
-<pre class="highlight"><span class="line">[&#x27;1 2 3\n&#x27;, &#x27;4 5 6\n&#x27;, &#x27;7 8 9&#x27;]</span><br></pre>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">[&#39;1 2 3\n&#39;, &#39;4 5 6\n&#39;, &#39;7 8 9&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -386,9 +407,9 @@
     
     <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
     
-    <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
-    
     <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
+    
+    <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
     
     <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
     
