@@ -281,8 +281,8 @@ pre {
     --border-color: #435266;
     --pre-color: #3c495b;
     --tbody-background-color: #3c495b;
-    --code-color: #c3c7cb;
-    --code-background-color: #3e4b5e;
+    --code-color: #F47466;
+    --code-background-color: #2C2C2C;
     --blue-tag-color: $dark-blue-tag-color;
     --blockquote-color: #181c27;
     --note-primary-border-color: #0c2760;
@@ -318,8 +318,8 @@ pre {
   --border-color: #435266;
   --pre-color: #3c495b;
   --tbody-background-color: #3c495b;
-  --code-color: #c3c7cb;
-  --code-background-color: #3e4b5e;
+  --code-color: #F47466;
+  --code-background-color: #2C2C2C;
   --blue-tag-color: $dark-blue-tag-color;
   --blockquote-color: #181c27;
   --note-primary-border-color: #0c2760;
