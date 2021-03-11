@@ -267,10 +267,11 @@
   <div id="section" class="post-content">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>网络爬虫系列的第三篇，使用proxyhandler处理器伪装IP</p>
 <span id="more"></span>
+
 <link rel="preload" href="/js/lib/prism/prism.min.css" as="style">
 <link rel="preload" href="/js/lib/prism/prism-tomorrow.min.css" as="style">
-**『 调整本文代码样式：**<button class="postbutton" style="color: #ffffff;">明亮</button>  <button class="postbutton" style="color: #000000;">黑暗</button>  **』**
 
+<p><strong>『 调整本文代码样式：</strong><button class="postbutton" style="color: #ffffff;">明亮</button>  <button class="postbutton" style="color: #000000;">黑暗</button>  <strong>』</strong></p>
 <hr>
 <h2 id="ProxyHandler处理器介绍"><a href="#ProxyHandler处理器介绍" class="headerlink" title="ProxyHandler处理器介绍"></a>ProxyHandler处理器介绍</h2><p><strong>IP地址</strong>，是网际协议中用于标识发送或接收数据报的设备的一串数字<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>，很多网站会检测 某一段时间某个IP的访问次数，如果访问过分频繁，可能会限制该IP的访问，所以我们需要借助某种方式来伪装我们的IP，使爬虫程序的正常运行。<br>伪装IP的一种有效方式就是使用<strong>代理</strong>，其基本原理如下图：</p>
 <p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/proxy-process.svg" alt="proxy-process" srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/proxy-process.svg" class="lozad post-image"></p>
