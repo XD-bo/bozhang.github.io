@@ -232,7 +232,7 @@
     
     
     <span class="dot"></span>
-    <span>1.4k 字</span>
+    <span>1.5k 字</span>
     
   </div>
   
@@ -271,7 +271,7 @@
 <li> <code>urllib.parse</code>，用来解析 <code>url</code>，可以对 <code>url</code> 进行拆分、合并等。</li>
 <li><code>urllib.robotparse</code>，用来解析 <code>robots.txt</code> 文件，判断网站是否能够进行爬取。<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></li>
 </ul>
-<h2 id="urllib-request-模块"><a href="#urllib-request-模块" class="headerlink" title="urllib.request 模块"></a>urllib.request 模块</h2><h3 id="request-urlopen-函数"><a href="#request-urlopen-函数" class="headerlink" title="request.urlopen 函数"></a>request.urlopen 函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>timeout<span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">,</span> cafile<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> capath<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> cadefault<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> context<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="urllib-request-模块"><a href="#urllib-request-模块" class="headerlink" title="urllib.request 模块"></a>urllib.request 模块</h2><h3 id="request-urlopen-函数"><a href="#request-urlopen-函数" class="headerlink" title="request.urlopen 函数"></a>request.urlopen 函数</h3><pre class="highlight"><code class="hljs python">urllib.request.urlopen(url, data=<span class="hljs-literal">None</span>, [timeout, ]*, cafile=<span class="hljs-literal">None</span>, capath=<span class="hljs-literal">None</span>, cadefault=<span class="hljs-literal">False</span>, context=<span class="hljs-literal">None</span>)<br></code></pre>
 
 <ul>
 <li> <code>url</code>，必选参数，是一个 <code>str</code> 字符串或者<code>Request</code> 对象</li>
@@ -280,21 +280,15 @@
 <li>剩余的参数不常用，不再详细介绍</li>
 </ul>
 <p>示例:<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
-
-resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">from</span> urllib <span class="hljs-keyword">import</span> request<br><br>resp = request.urlopen(<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>)<br>print(resp.read())<br></code></pre>
 <p>运行结果是输出 <a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a> 的源代码</p>
 <p>也可以通过这种方式获取状态码</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
-
-resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>getcode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">from</span> urllib <span class="hljs-keyword">import</span> request<br><br>resp = request.urlopen(<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>)<br>print(resp.getcode())<br></code></pre>
 
 <p>运行结果：</p>
-<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">200<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs txt">200<br></code></pre>
 
-<h3 id="request-urlretrieve-函数"><a href="#request-urlretrieve-函数" class="headerlink" title="request.urlretrieve 函数"></a>request.urlretrieve 函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span> filename<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> reporthook<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="request-urlretrieve-函数"><a href="#request-urlretrieve-函数" class="headerlink" title="request.urlretrieve 函数"></a>request.urlretrieve 函数</h3><pre class="highlight"><code class="hljs python">urlretrieve(url, filename=<span class="hljs-literal">None</span>, reporthook=<span class="hljs-literal">None</span>, data=<span class="hljs-literal">None</span>)<br></code></pre>
 <blockquote>
 <p>python3中urllib.request模块提供的urlretrieve()函数。urlretrieve()方法直接将远程数据下载到本地。<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></p>
 </blockquote>
@@ -305,59 +299,25 @@ resp <span class="token operator">=</span> request<span class="token punctuation
 <li>参数data：返回一个包含两个元素的(filename, headers) 元组，filename 表示保存到本地的路径，header表示服务器的响应头</li>
 </ul>
 <p>示例：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
-
-request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">,</span><span class="token string">"baidu.html"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">from</span> urllib <span class="hljs-keyword">import</span> request<br><br>request.urlretrieve(<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>,<span class="hljs-string">&quot;baidu.html&quot;</span>)<br></code></pre>
 <p>通过这个代码可以下载百度的网页到当前文件夹</p>
 <h2 id="urllib-parse-模块"><a href="#urllib-parse-模块" class="headerlink" title="urllib.parse 模块"></a>urllib.parse 模块</h2><h3 id="parse-urlencode函数"><a href="#parse-urlencode函数" class="headerlink" title="parse.urlencode函数"></a>parse.urlencode函数</h3><p>urlencode 可以把<strong>字典数据</strong>转换为 <strong>URL 编码</strong>的数据，用浏览器发送请求的时候，如果url 中包含了中文或者其他特殊字符，那么浏览器会自动编码，如果使用代码发送请求，那么就必须手动的进行编码</p>
 <p>示例：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
-params <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'姓名'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token string">'18'</span><span class="token punctuation">,</span> <span class="token string">'greet'</span><span class="token punctuation">:</span> <span class="token string">'hello world'</span><span class="token punctuation">&#125;</span>
-result <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>params<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">from</span> urllib <span class="hljs-keyword">import</span> parse<br>params = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;姓名&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-string">&#x27;18&#x27;</span>, <span class="hljs-string">&#x27;greet&#x27;</span>: <span class="hljs-string">&#x27;hello world&#x27;</span>&#125;<br>result = parse.urlencode(params)<br>print(result)<br></code></pre>
 <p>运行结果：</p>
-<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">name&#x3D;%E5%A7%93%E5%90%8D&amp;age&#x3D;18&amp;greet&#x3D;hello+world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs txt">name=%E5%A7%93%E5%90%8D&amp;age=18&amp;greet=hello+world<br></code></pre>
 
 <h3 id="parse-parse-qs函数"><a href="#parse-parse-qs函数" class="headerlink" title="parse.parse_qs函数"></a>parse.parse_qs函数</h3><p>对URL进行解码，可以理解为<code>urlencode</code>的逆过程</p>
 <h3 id="urlparse和urlsplit函数"><a href="#urlparse和urlsplit函数" class="headerlink" title="urlparse和urlsplit函数"></a>urlparse和urlsplit函数</h3><p>两个函数都用来对URL进行分割，两者用法相同，区别在于<code>urlparse</code>可以分割出URL的<code>params</code>属性，<code>urlsplit</code>则不能<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup><br>示例：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
-url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s?wd=demo&amp;time=2021#3'</span>
-result <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'scheme:'</span><span class="token punctuation">,</span>result<span class="token punctuation">.</span>scheme<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'netloc:'</span><span class="token punctuation">,</span>result<span class="token punctuation">.</span>netloc<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'path:'</span><span class="token punctuation">,</span>result<span class="token punctuation">.</span>path<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'query:'</span><span class="token punctuation">,</span>result<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">from</span> urllib <span class="hljs-keyword">import</span> parse<br>url = <span class="hljs-string">&#x27;http://www.baidu.com/s?wd=demo&amp;time=2021#3&#x27;</span><br>result = parse.urlsplit(url)<br>print(result)<br>print(<span class="hljs-string">&#x27;scheme:&#x27;</span>,result.scheme)<br>print(<span class="hljs-string">&#x27;netloc:&#x27;</span>,result.netloc)<br>print(<span class="hljs-string">&#x27;path:&#x27;</span>,result.path)<br>print(<span class="hljs-string">&#x27;query:&#x27;</span>,result.query)<br></code></pre>
 <p>运行结果：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">SplitResult<span class="token punctuation">(</span>scheme<span class="token operator">=</span><span class="token string">'http'</span><span class="token punctuation">,</span> netloc<span class="token operator">=</span><span class="token string">'www.baidu.com'</span><span class="token punctuation">,</span> path<span class="token operator">=</span><span class="token string">'/s'</span><span class="token punctuation">,</span> query<span class="token operator">=</span><span class="token string">'wd=demo&amp;time=2021'</span><span class="token punctuation">,</span> fragment<span class="token operator">=</span><span class="token string">'3'</span><span class="token punctuation">)</span>
-scheme<span class="token punctuation">:</span> http
-netloc<span class="token punctuation">:</span> www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
-path<span class="token punctuation">:</span> <span class="token operator">/</span>s
-query<span class="token punctuation">:</span> wd<span class="token operator">=</span>demo<span class="token operator">&amp;</span>time<span class="token operator">=</span><span class="token number">2021</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs python">SplitResult(scheme=<span class="hljs-string">&#x27;http&#x27;</span>, netloc=<span class="hljs-string">&#x27;www.baidu.com&#x27;</span>, path=<span class="hljs-string">&#x27;/s&#x27;</span>, query=<span class="hljs-string">&#x27;wd=demo&amp;time=2021&#x27;</span>, fragment=<span class="hljs-string">&#x27;3&#x27;</span>)<br>scheme: http<br>netloc: www.baidu.com<br>path: /s<br>query: wd=demo&amp;time=<span class="hljs-number">2021</span><br></code></pre>
 
-<h2 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">urllib</span><span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> headers<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> origin_req_host<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> unverifiable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h2><pre class="highlight"><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">urllib</span>.<span class="hljs-title">request</span>.<span class="hljs-title">Request</span>(<span class="hljs-params">url, data=<span class="hljs-literal">None</span>, headers=&#123;&#125;, origin_req_host=<span class="hljs-literal">None</span>, unverifiable=<span class="hljs-literal">False</span>, method=<span class="hljs-literal">None</span></span>)</span><br></code></pre>
 
 <p>Request类是request下一个非常强大的类，用于在请求的时候加上请求头，例如<code>User-Agent</code>，以及<code>POST</code>请求所需要的<code>data</code> </p>
 <p>示例：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span> parse
-
-url <span class="token operator">=</span> <span class="token string">'https://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false'</span>
-
-headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537'</span>
-                  <span class="token string">'.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36'</span><span class="token punctuation">,</span>
-    <span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">'https://www.lagou.com/jobs/list_python?labelWords=&amp;fromSearch=true&amp;suginput='</span><span class="token punctuation">,</span>
-    <span class="token string">'cookie'</span><span class="token punctuation">:</span> <span class="token string">''</span>
-<span class="token punctuation">&#125;</span>
-
-data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'ture'</span><span class="token punctuation">,</span>
-    <span class="token string">'pn'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-    <span class="token string">'kd'</span><span class="token punctuation">:</span> <span class="token string">'python'</span>
-<span class="token punctuation">&#125;</span>
-req <span class="token operator">=</span> request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token string">'POST'</span><span class="token punctuation">)</span>
-resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">from</span> urllib <span class="hljs-keyword">import</span> request, parse<br><br>url = <span class="hljs-string">&#x27;https://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false&#x27;</span><br><br>headers = &#123;<br>    <span class="hljs-string">&#x27;User-Agent&#x27;</span>: <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537&#x27;</span><br>                  <span class="hljs-string">&#x27;.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36&#x27;</span>,<br>    <span class="hljs-string">&#x27;Referer&#x27;</span>: <span class="hljs-string">&#x27;https://www.lagou.com/jobs/list_python?labelWords=&amp;fromSearch=true&amp;suginput=&#x27;</span>,<br>    <span class="hljs-string">&#x27;cookie&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span><br>&#125;<br><br>data = &#123;<br>    <span class="hljs-string">&#x27;first&#x27;</span>: <span class="hljs-string">&#x27;ture&#x27;</span>,<br>    <span class="hljs-string">&#x27;pn&#x27;</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-string">&#x27;kd&#x27;</span>: <span class="hljs-string">&#x27;python&#x27;</span><br>&#125;<br>req = request.Request(url, headers=headers, data=parse.urlencode(data).encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>), method=<span class="hljs-string">&#x27;POST&#x27;</span>)<br>resp = request.urlopen(req)<br>print(resp.read().decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>))<br></code></pre>
 <p>这段代码用于从“<a target="_blank" rel="noopener" href="https://www.lagou.com/">拉勾网</a>”获取有关“python”的职位信息，拉勾网具有一定反爬机制，比较适合来做练习,关于代码的解释如下：</p>
 <ul>
 <li><p><code>URL</code>、<code>headers</code>、 <code>data</code> 如何获取？</p>
@@ -472,17 +432,17 @@ resp <span class="token operator">=</span> request<span class="token punctuation
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
-    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
-    
     <a href="/tags/网络爬虫/" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
     
     <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
     
-    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
+    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
+    
+    <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
     
     <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
     
-    <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
+    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
     
   </div>
 </div>
