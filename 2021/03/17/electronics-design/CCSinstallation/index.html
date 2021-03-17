@@ -260,23 +260,31 @@
   <div id="section" class="post-content">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>对MSP430系列的单片机编程，最流行的是使用CCS集成开发环境，本文讲了CCS安装中踩过的坑</p>
 <span id="more"></span>
-
-<hr>
+<hr />
 <p>因为老师这边TI家MSP430的单片机比较多，所以最早接触的单片机就是这款，优点和缺点就不说了，主要拿这个用来入门单片机就是了（据说掌握了一种单片机其他单片机入门也很快）</p>
 <p>在官方<a target="_blank" rel="noopener" href="https://software-dl.ti.com/ccs/esd/documents/ccs_downloads.html#ccs-incremental-update-policy">安装信息</a>的页面可以下载软件，软件7.0以后的版本是免费的(7.0以前的版本也可以在这里找到许可证)，从官网上下载速度很快，下载好就可以解压安装了(我刚开始下载的是CCS10)</p>
-<h2 id="安装失败，无法安装"><a href="#安装失败，无法安装" class="headerlink" title="安装失败，无法安装"></a>安装失败，无法安装</h2><p>原因是字符集不正确(安装页面会有相关警告说明)<a target="_blank" rel="noopener" href="http://software-dl.ti.com/ccs/esd/documents/users_guide/ccs_faqs.html">安装说明</a>上给出了建议</p>
+<h2 id="安装失败无法安装"><a class="markdownIt-Anchor" href="#安装失败无法安装"></a> 安装失败，无法安装</h2>
+<p>原因是字符集不正确(安装页面会有相关警告说明)<a target="_blank" rel="noopener" href="http://software-dl.ti.com/ccs/esd/documents/users_guide/ccs_faqs.html">安装说明</a>上给出了建议</p>
 <blockquote>
 <p>由于CCS使用的Eclipse应用程序框架的限制，用户名不能包含任何Unicode字符。为了安装该产品，请创建一个没有任何Unicode字符的临时管理员用户，并为所有用户安装CCS</p>
 </blockquote>
-<p>就是采用新建一个用户的方法，保证新建的用户名只有ASCII字符(用户名全为英文就好了)，关于字符集和字符编码的介绍看<a target="_blank" rel="noopener" href="https://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html#_2.1._ASCII%E5%AD%97%E7%AC%A6%E9%9B%86&ASCII%E7%BC%96%E7%A0%81">这里</a>，win10官方有介绍<a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/windows/%E5%9C%A8-windows-10-%E4%B8%AD%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%88%96%E7%AE%A1%E7%90%86%E5%91%98%E5%B8%90%E6%88%B7-20de74e0-ac7f-3502-a866-32915af2a34d">新建用户</a>的方法（不建议注册表强制更改原用户名，会导致很多配置上的错误甚至文件丢失，早知道刚买电脑的时候就起一个英文的用户名了T_T）</p>
+<p>就是采用新建一个用户的方法，保证新建的用户名只有ASCII字符(用户名全为英文就好了)，关于字符集和字符编码的介绍看<a target="_blank" rel="noopener" href="https://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html#_2.1._ASCII%E5%AD%97%E7%AC%A6%E9%9B%86&amp;ASCII%E7%BC%96%E7%A0%81">这里</a>，win10官方有介绍<a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/windows/%E5%9C%A8-windows-10-%E4%B8%AD%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%88%96%E7%AE%A1%E7%90%86%E5%91%98%E5%B8%90%E6%88%B7-20de74e0-ac7f-3502-a866-32915af2a34d">新建用户</a>的方法（不建议注册表强制更改原用户名，会导致很多配置上的错误甚至文件丢失，早知道刚买电脑的时候就起一个英文的用户名了T_T）</p>
 <p>或者安装低版本的CCS就不用管这个可以直接安装，我当时就卸载了CCS10然后安装了CCS8，能够直接安装上(但最终运行的时候还会产生问题，下面会讲)</p>
-<h2 id="软件无法打开"><a href="#软件无法打开" class="headerlink" title="软件无法打开"></a>软件无法打开</h2><p>软件第一次打开的时候没有遇到问题，但第二次打开的，时候出现错误如图<br><img src="https://gitee.com/bozhang/imgbed/raw/master/img/ccserror.png" alt="ccserror" style="zoom: 80%;" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/ccserror.png" class="lozad post-image"><br>这里的<code>log</code>路径在安装目录\ccsv8\eclipse\configuration下，文件为一串数字+.log的格式，打开发现比较关键性的几句：</p>
+<h2 id="软件无法打开"><a class="markdownIt-Anchor" href="#软件无法打开"></a> 软件无法打开</h2>
+<p>软件第一次打开的时候没有遇到问题，但第二次打开的，时候出现错误如图<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/ccserror.png" alt="ccserror" style="zoom: 80%;" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/ccserror.png" class="lozad post-image"><br />
+这里的<code>log</code>路径在安装目录\ccsv8\eclipse\configuration下，文件为一串数字+.log的格式，打开发现比较关键性的几句：</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html">!MESSAGE Error reading configuration: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (拒绝访问。)
 !STACK 0
 java.io.FileNotFoundException: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (拒绝访问。)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>大意就是对一些文件夹没有访问权限，那么以管理员身份运行就应该可以解决，为了以后打开方便，可以设置软件默认打开方式为以管理员方式运行:<br>找到程序文件，右键→属性→兼容性→勾选以管理员方式运行<br><img src="https://gitee.com/bozhang/imgbed/raw/master/img/ccscharacter.png" alt="ccscharacter" style="zoom: 67%;" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/ccscharacter.png" class="lozad post-image"><br>至此，软件能够正常打开</p>
-<h2 id="出现编译错误"><a href="#出现编译错误" class="headerlink" title="出现编译错误"></a>出现编译错误</h2><p>当打开工作区或编译文件时出现：<br><img src="https://gitee.com/bozhang/imgbed/raw/master/img/DebugAssertionFailed.png" alt="DebugAssertionFailed" style="zoom:80%;" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/DebugAssertionFailed.png" class="lozad post-image"><br>TI论坛上有<a target="_blank" rel="noopener" href="https://e2e.ti.com/support/tools/ccs/f/code-composer-studio-forum/744087/ccs-msp430g2553-error-message-debug-assertion-failed-when-i-try-to-compile-no-matter-the-code">相关问题</a>，就是安装路径和工作文件夹路径不能有Unicode字符，我当时确认了一下，确实没有Unicode字符，最后又查了半天，发现在C盘用户文件夹下会生成ti的相关临时文件，所以也用户名还是不能用中文，要按照上面介绍的方法新建一个用户名</p>
+<p>大意就是对一些文件夹没有访问权限，那么以管理员身份运行就应该可以解决，为了以后打开方便，可以设置软件默认打开方式为以管理员方式运行:<br />
+找到程序文件，右键→属性→兼容性→勾选以管理员方式运行<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/ccscharacter.png" alt="ccscharacter" style="zoom: 67%;" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/ccscharacter.png" class="lozad post-image"><br />
+至此，软件能够正常打开</p>
+<h2 id="出现编译错误"><a class="markdownIt-Anchor" href="#出现编译错误"></a> 出现编译错误</h2>
+<p>当打开工作区或编译文件时出现：<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/DebugAssertionFailed.png" alt="DebugAssertionFailed" style="zoom:80%;" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/DebugAssertionFailed.png" class="lozad post-image"><br />
+TI论坛上有<a target="_blank" rel="noopener" href="https://e2e.ti.com/support/tools/ccs/f/code-composer-studio-forum/744087/ccs-msp430g2553-error-message-debug-assertion-failed-when-i-try-to-compile-no-matter-the-code">相关问题</a>，就是安装路径和工作文件夹路径不能有Unicode字符，我当时确认了一下，确实没有Unicode字符，最后又查了半天，发现在C盘用户文件夹下会生成ti的相关临时文件，所以也用户名还是不能用中文，要按照上面介绍的方法新建一个用户名</p>
 <p>至此，安装完成，软件可以在新建用户登陆时正常使用</p>
 
   </div>
@@ -335,7 +343,7 @@ java.io.FileNotFoundException: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\o
 
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">安装失败，无法安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text">软件无法打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF"><span class="toc-number">3.</span> <span class="toc-text">出现编译错误</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text"> 安装失败，无法安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text"> 软件无法打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF"><span class="toc-number">3.</span> <span class="toc-text"> 出现编译错误</span></a></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -368,7 +376,7 @@ java.io.FileNotFoundException: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\o
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">安装失败，无法安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text">软件无法打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF"><span class="toc-number">3.</span> <span class="toc-text">出现编译错误</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text"> 安装失败，无法安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text"> 软件无法打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF"><span class="toc-number">3.</span> <span class="toc-text"> 出现编译错误</span></a></li></ol>
     </div>
   </article>
   
@@ -378,10 +386,10 @@ java.io.FileNotFoundException: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\o
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/python/">
+      <a href="/categories/物理/">
         <div class="categories-list-item">
-          python
-          <span class="categories-list-item-badge">4</span>
+          物理
+          <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
@@ -392,10 +400,10 @@ java.io.FileNotFoundException: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\o
         </div>
       </a>
     
-      <a href="/categories/物理/">
+      <a href="/categories/python/">
         <div class="categories-list-item">
-          物理
-          <span class="categories-list-item-badge">1</span>
+          python
+          <span class="categories-list-item-badge">4</span>
         </div>
       </a>
     
@@ -408,29 +416,29 @@ java.io.FileNotFoundException: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\o
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
+    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
+    
     <a href="/tags/网络爬虫/" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
     
     <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
     
-    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
-    
-    <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
+    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
     
     <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
     
-    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
-    
-    <a href="/tags/CSS/" title="CSS"><div class="tags-list-item">CSS</div></a>
-    
-    <a href="/tags/单片机/" title="单片机"><div class="tags-list-item">单片机</div></a>
+    <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
     
     <a href="/tags/软件安装/" title="软件安装"><div class="tags-list-item">软件安装</div></a>
     
-    <a href="/tags/光学/" title="光学"><div class="tags-list-item">光学</div></a>
+    <a href="/tags/单片机/" title="单片机"><div class="tags-list-item">单片机</div></a>
+    
+    <a href="/tags/CSS/" title="CSS"><div class="tags-list-item">CSS</div></a>
+    
+    <a href="/tags/干涉条纹/" title="干涉条纹"><div class="tags-list-item">干涉条纹</div></a>
     
     <a href="/tags/等倾干涉/" title="等倾干涉"><div class="tags-list-item">等倾干涉</div></a>
     
-    <a href="/tags/干涉条纹/" title="干涉条纹"><div class="tags-list-item">干涉条纹</div></a>
+    <a href="/tags/光学/" title="光学"><div class="tags-list-item">光学</div></a>
     
   </div>
 </div>
@@ -445,7 +453,7 @@ java.io.FileNotFoundException: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\o
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">安装失败，无法安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text">软件无法打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF"><span class="toc-number">3.</span> <span class="toc-text">出现编译错误</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text"> 安装失败，无法安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text"> 软件无法打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF"><span class="toc-number">3.</span> <span class="toc-text"> 出现编译错误</span></a></li></ol>
   </article>
   
   

@@ -261,21 +261,23 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>网络爬虫系列的第二篇，使用python自带的urllib库开发爬虫</p>
 <span id="more"></span>
 <p>这里只做简单的介绍，以便后续使用</p>
-<hr>
-<h2 id="urllib库简介"><a href="#urllib库简介" class="headerlink" title="urllib库简介"></a>urllib库简介</h2><blockquote>
+<hr />
+<h2 id="urllib库简介"><a class="markdownIt-Anchor" href="#urllib库简介"></a> urllib库简介</h2>
+<blockquote>
 <p><code>urllib</code> 是一个 Python 内置包，不需要额外安装即可使用，包里面包含了几个用来处理 <code>url</code> 的模块,是一个最基本的网络请求库，可以模拟浏览器的行为，向指定的服务器发送一个请求，并可以保存服务器返回的数据。<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
 </blockquote>
 <ul>
-<li> <code>urllib.request</code>，用来打开和读取 <code>url</code>，意思就是可以用它来模拟发送请求，就像在浏览器里输入网址然后敲击回车一样，获取网页响应内容。</li>
-<li> <code>urllib.error</code>，用来处理 <code>urllib.request</code> 引起的异常，保证程序的正常执行。</li>
-<li> <code>urllib.parse</code>，用来解析 <code>url</code>，可以对 <code>url</code> 进行拆分、合并等。</li>
+<li><code>urllib.request</code>，用来打开和读取 <code>url</code>，意思就是可以用它来模拟发送请求，就像在浏览器里输入网址然后敲击回车一样，获取网页响应内容。</li>
+<li><code>urllib.error</code>，用来处理 <code>urllib.request</code> 引起的异常，保证程序的正常执行。</li>
+<li><code>urllib.parse</code>，用来解析 <code>url</code>，可以对 <code>url</code> 进行拆分、合并等。</li>
 <li><code>urllib.robotparse</code>，用来解析 <code>robots.txt</code> 文件，判断网站是否能够进行爬取。<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></li>
 </ul>
-<h2 id="urllib-request-模块"><a href="#urllib-request-模块" class="headerlink" title="urllib.request 模块"></a>urllib.request 模块</h2><h3 id="request-urlopen-函数"><a href="#request-urlopen-函数" class="headerlink" title="request.urlopen 函数"></a>request.urlopen 函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>timeout<span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">,</span> cafile<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> capath<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> cadefault<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> context<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h2 id="urllibrequest-模块"><a class="markdownIt-Anchor" href="#urllibrequest-模块"></a> urllib.request 模块</h2>
+<h3 id="requesturlopen-函数"><a class="markdownIt-Anchor" href="#requesturlopen-函数"></a> request.urlopen 函数</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>timeout<span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">,</span> cafile<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> capath<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> cadefault<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> context<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
-<li> <code>url</code>，必选参数，是一个 <code>str</code> 字符串或者<code>Request</code> 对象</li>
-<li> <code>data</code>，如果传递 <code>data</code> 参数，<code>urlopen</code> 将使用 <code>HTTP POST</code> 方式请求，否则为 <code>HTTP GET</code> 请求。</li>
+<li><code>url</code>，必选参数，是一个 <code>str</code> 字符串或者<code>Request</code> 对象</li>
+<li><code>data</code>，如果传递 <code>data</code> 参数，<code>urlopen</code> 将使用 <code>HTTP POST</code> 方式请求，否则为 <code>HTTP GET</code> 请求。</li>
 <li><code>timeout</code>，可选参数，设置超时时间(未设置时使用全局默认超时时间)，以秒为单位计时，若请求超出了设置时间还未得到响应则抛出异常。</li>
 <li>剩余的参数不常用，不再详细介绍</li>
 </ul>
@@ -284,17 +286,16 @@
 
 resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>运行结果是输出 <a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a> 的源代码</p>
+<p>运行结果是输出 <a target="_blank" rel="noopener" href="http://www.baidu.com">http://www.baidu.com</a> 的源代码</p>
 <p>也可以通过这种方式获取状态码</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
 
 resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>getcode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>运行结果：</p>
 <pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">200<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="request-urlretrieve-函数"><a href="#request-urlretrieve-函数" class="headerlink" title="request.urlretrieve 函数"></a>request.urlretrieve 函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span> filename<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> reporthook<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="requesturlretrieve-函数"><a class="markdownIt-Anchor" href="#requesturlretrieve-函数"></a> request.urlretrieve 函数</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span> filename<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> reporthook<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>python3中urllib.request模块提供的urlretrieve()函数。urlretrieve()方法直接将远程数据下载到本地。<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></p>
 </blockquote>
@@ -309,7 +310,9 @@ resp <span class="token operator">=</span> request<span class="token punctuation
 
 request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">,</span><span class="token string">"baidu.html"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>通过这个代码可以下载百度的网页到当前文件夹</p>
-<h2 id="urllib-parse-模块"><a href="#urllib-parse-模块" class="headerlink" title="urllib.parse 模块"></a>urllib.parse 模块</h2><h3 id="parse-urlencode函数"><a href="#parse-urlencode函数" class="headerlink" title="parse.urlencode函数"></a>parse.urlencode函数</h3><p>urlencode 可以把<strong>字典数据</strong>转换为 <strong>URL 编码</strong>的数据，用浏览器发送请求的时候，如果url 中包含了中文或者其他特殊字符，那么浏览器会自动编码，如果使用代码发送请求，那么就必须手动的进行编码</p>
+<h2 id="urllibparse-模块"><a class="markdownIt-Anchor" href="#urllibparse-模块"></a> urllib.parse 模块</h2>
+<h3 id="parseurlencode函数"><a class="markdownIt-Anchor" href="#parseurlencode函数"></a> parse.urlencode函数</h3>
+<p>urlencode 可以把<strong>字典数据</strong>转换为 <strong>URL 编码</strong>的数据，用浏览器发送请求的时候，如果url 中包含了中文或者其他特殊字符，那么浏览器会自动编码，如果使用代码发送请求，那么就必须手动的进行编码</p>
 <p>示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
 params <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'姓名'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token string">'18'</span><span class="token punctuation">,</span> <span class="token string">'greet'</span><span class="token punctuation">:</span> <span class="token string">'hello world'</span><span class="token punctuation">&#125;</span>
@@ -317,9 +320,11 @@ result <span class="token operator">=</span> parse<span class="token punctuation
 <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：</p>
 <pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">name&#x3D;%E5%A7%93%E5%90%8D&amp;age&#x3D;18&amp;greet&#x3D;hello+world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="parse-parse-qs函数"><a href="#parse-parse-qs函数" class="headerlink" title="parse.parse_qs函数"></a>parse.parse_qs函数</h3><p>对URL进行解码，可以理解为<code>urlencode</code>的逆过程</p>
-<h3 id="urlparse和urlsplit函数"><a href="#urlparse和urlsplit函数" class="headerlink" title="urlparse和urlsplit函数"></a>urlparse和urlsplit函数</h3><p>两个函数都用来对URL进行分割，两者用法相同，区别在于<code>urlparse</code>可以分割出URL的<code>params</code>属性，<code>urlsplit</code>则不能<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup><br>示例：</p>
+<h3 id="parseparse_qs函数"><a class="markdownIt-Anchor" href="#parseparse_qs函数"></a> parse.parse_qs函数</h3>
+<p>对URL进行解码，可以理解为<code>urlencode</code>的逆过程</p>
+<h3 id="urlparse和urlsplit函数"><a class="markdownIt-Anchor" href="#urlparse和urlsplit函数"></a> urlparse和urlsplit函数</h3>
+<p>两个函数都用来对URL进行分割，两者用法相同，区别在于<code>urlparse</code>可以分割出URL的<code>params</code>属性，<code>urlsplit</code>则不能<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup><br />
+示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
 url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s?wd=demo&amp;time=2021#3'</span>
 result <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
@@ -334,10 +339,9 @@ scheme<span class="token punctuation">:</span> http
 netloc<span class="token punctuation">:</span> www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com
 path<span class="token punctuation">:</span> <span class="token operator">/</span>s
 query<span class="token punctuation">:</span> wd<span class="token operator">=</span>demo<span class="token operator">&amp;</span>time<span class="token operator">=</span><span class="token number">2021</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">urllib</span><span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> headers<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> origin_req_host<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> unverifiable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>Request类是request下一个非常强大的类，用于在请求的时候加上请求头，例如<code>User-Agent</code>，以及<code>POST</code>请求所需要的<code>data</code> </p>
+<h2 id="request类"><a class="markdownIt-Anchor" href="#request类"></a> Request类</h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">urllib</span><span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> headers<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> origin_req_host<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> unverifiable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Request类是request下一个非常强大的类，用于在请求的时候加上请求头，例如<code>User-Agent</code>，以及<code>POST</code>请求所需要的<code>data</code></p>
 <p>示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span> parse
 
@@ -360,22 +364,29 @@ resp <span class="token operator">=</span> request<span class="token punctuation
 <span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这段代码用于从“<a target="_blank" rel="noopener" href="https://www.lagou.com/">拉勾网</a>”获取有关“python”的职位信息，拉勾网具有一定反爬机制，比较适合来做练习,关于代码的解释如下：</p>
 <ul>
-<li><p><code>URL</code>、<code>headers</code>、 <code>data</code> 如何获取？</p>
-<p>  如下图，在拉勾网上搜索python，用f12或右键“检查”调出开发者工具，在<code>Network</code>上找到如下的JS文件，职位信息就在这个文件中，可以在<code>Response</code>页面查看职位信息，而<code>URL</code>、<code>headers</code>、 <code>data</code>的信息在<code>Headers</code>中，找的对应项补充在代码中即可</p>
+<li>
+<p><code>URL</code>、<code>headers</code>、 <code>data</code> 如何获取？</p>
+<p>如下图，在拉勾网上搜索python，用f12或右键“检查”调出开发者工具，在<code>Network</code>上找到如下的JS文件，职位信息就在这个文件中，可以在<code>Response</code>页面查看职位信息，而<code>URL</code>、<code>headers</code>、 <code>data</code>的信息在<code>Headers</code>中，找的对应项补充在代码中即可</p>
 </li>
 </ul>
-<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools2.png" alt="从控制台找数据" srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools2.png" class="lozad post-image"></p>
+<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools2.png" alt="从控制台找数据" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/chrome-developer-tools2.png" class="lozad post-image"></p>
 <ul>
-<li><p>为何在<code>Request</code>中要对<code>data</code>的格式进行处理？<br>  <code>data</code>要先采用<code>urlencode</code>进行编码，但转化之后是<code>unicode</code>字符串，要转化成所支持的<code>bytes</code>数据类型，用<code>encode</code>进行转化</p>
+<li>
+<p>为何在<code>Request</code>中要对<code>data</code>的格式进行处理？<br />
+<code>data</code>要先采用<code>urlencode</code>进行编码，但转化之后是<code>unicode</code>字符串，要转化成所支持的<code>bytes</code>数据类型，用<code>encode</code>进行转化</p>
 </li>
-<li><p>最后输出时的<code>decode</code>作用是什么？<br>  默认输出为<code>bytes</code>数据类型，用<code>decode</code>解码成易读的<code>unicode</code>类型并采用<code>UTF-8</code>编码</p>
+<li>
+<p>最后输出时的<code>decode</code>作用是什么？<br />
+默认输出为<code>bytes</code>数据类型，用<code>decode</code>解码成易读的<code>unicode</code>类型并采用<code>UTF-8</code>编码</p>
 </li>
-<li><p><span style="color:RED;">注意：<code>cookie</code>信息这里并没有填，找到自己的<code>cookie</code>填上去即可运行</span></p>
+<li>
+<p><span style="color:RED;">注意：<code>cookie</code>信息这里并没有填，找到自己的<code>cookie</code>填上去即可运行</span></p>
 </li>
 </ul>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>⛳urlllib库的简单介绍大概就这些了，接着是关于IP代理的设置与应用</p>
-<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" alt="to be continued,Photo by Reuben Juarez on Unsplash" srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" class="lozad post-image"></p>
-<hr>
+<h2 id="todo"><a class="markdownIt-Anchor" href="#todo"></a> TODO</h2>
+<p>⛳urlllib库的简单介绍大概就这些了，接着是关于IP代理的设置与应用</p>
+<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" alt="to be continued,Photo by Reuben Juarez on Unsplash" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" class="lozad post-image"></p>
+<hr />
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.6/library/urllib.html">urllib — URL 处理模块</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="http://www.ityouknow.com/python/2019/11/12/python-spider-Urllib-056.html">urllib 包基本使用.纯洁的微笑</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><a href="https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/">关于read及其它文件读取的方法，参考我的这篇博客</a></span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://blog.csdn.net/zzc15806/article/details/79636417">使用python urlretrieve下载文件.z小白.</a></span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">例如http://www.baidu.com/s;demo1?wd=demo2 中的demo1只能被<code>urlparse</code>获取</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div>
   </div>
   <div>
@@ -413,7 +424,7 @@ resp <span class="token operator">=</span> request<span class="token punctuation
 
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">urllib库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib-request-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">urllib.request 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#request-urlopen-%E5%87%BD%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">request.urlopen 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#request-urlretrieve-%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">request.urlretrieve 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib-parse-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text">urllib.parse 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#parse-urlencode%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">parse.urlencode函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parse-parse-qs%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">parse.parse_qs函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urlparse%E5%92%8Curlsplit%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text">urlparse和urlsplit函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Request%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text">Request类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-number">5.</span> <span class="toc-text">TODO</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> urllib库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllibrequest-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text"> urllib.request 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#requesturlopen-%E5%87%BD%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text"> request.urlopen 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#requesturlretrieve-%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text"> request.urlretrieve 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllibparse-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text"> urllib.parse 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#parseurlencode%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text"> parse.urlencode函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parseparse_qs%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text"> parse.parse_qs函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urlparse%E5%92%8Curlsplit%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text"> urlparse和urlsplit函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#request%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text"> Request类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#todo"><span class="toc-number">5.</span> <span class="toc-text"> TODO</span></a></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -446,7 +457,7 @@ resp <span class="token operator">=</span> request<span class="token punctuation
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">urllib库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib-request-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">urllib.request 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#request-urlopen-%E5%87%BD%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">request.urlopen 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#request-urlretrieve-%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">request.urlretrieve 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib-parse-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text">urllib.parse 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#parse-urlencode%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">parse.urlencode函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parse-parse-qs%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">parse.parse_qs函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urlparse%E5%92%8Curlsplit%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text">urlparse和urlsplit函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Request%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text">Request类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-number">5.</span> <span class="toc-text">TODO</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> urllib库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllibrequest-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text"> urllib.request 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#requesturlopen-%E5%87%BD%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text"> request.urlopen 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#requesturlretrieve-%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text"> request.urlretrieve 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllibparse-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text"> urllib.parse 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#parseurlencode%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text"> parse.urlencode函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parseparse_qs%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text"> parse.parse_qs函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urlparse%E5%92%8Curlsplit%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text"> urlparse和urlsplit函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#request%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text"> Request类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#todo"><span class="toc-number">5.</span> <span class="toc-text"> TODO</span></a></li></ol>
     </div>
   </article>
   
@@ -456,10 +467,10 @@ resp <span class="token operator">=</span> request<span class="token punctuation
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/python/">
+      <a href="/categories/物理/">
         <div class="categories-list-item">
-          python
-          <span class="categories-list-item-badge">4</span>
+          物理
+          <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
@@ -470,10 +481,10 @@ resp <span class="token operator">=</span> request<span class="token punctuation
         </div>
       </a>
     
-      <a href="/categories/物理/">
+      <a href="/categories/python/">
         <div class="categories-list-item">
-          物理
-          <span class="categories-list-item-badge">1</span>
+          python
+          <span class="categories-list-item-badge">4</span>
         </div>
       </a>
     
@@ -486,29 +497,29 @@ resp <span class="token operator">=</span> request<span class="token punctuation
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
+    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
+    
     <a href="/tags/网络爬虫/" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
     
     <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
     
-    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
-    
-    <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
+    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
     
     <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
     
-    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
-    
-    <a href="/tags/CSS/" title="CSS"><div class="tags-list-item">CSS</div></a>
-    
-    <a href="/tags/单片机/" title="单片机"><div class="tags-list-item">单片机</div></a>
+    <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
     
     <a href="/tags/软件安装/" title="软件安装"><div class="tags-list-item">软件安装</div></a>
     
-    <a href="/tags/光学/" title="光学"><div class="tags-list-item">光学</div></a>
+    <a href="/tags/单片机/" title="单片机"><div class="tags-list-item">单片机</div></a>
+    
+    <a href="/tags/CSS/" title="CSS"><div class="tags-list-item">CSS</div></a>
+    
+    <a href="/tags/干涉条纹/" title="干涉条纹"><div class="tags-list-item">干涉条纹</div></a>
     
     <a href="/tags/等倾干涉/" title="等倾干涉"><div class="tags-list-item">等倾干涉</div></a>
     
-    <a href="/tags/干涉条纹/" title="干涉条纹"><div class="tags-list-item">干涉条纹</div></a>
+    <a href="/tags/光学/" title="光学"><div class="tags-list-item">光学</div></a>
     
   </div>
 </div>
@@ -523,7 +534,7 @@ resp <span class="token operator">=</span> request<span class="token punctuation
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">urllib库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib-request-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">urllib.request 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#request-urlopen-%E5%87%BD%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">request.urlopen 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#request-urlretrieve-%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">request.urlretrieve 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib-parse-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text">urllib.parse 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#parse-urlencode%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">parse.urlencode函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parse-parse-qs%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">parse.parse_qs函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urlparse%E5%92%8Curlsplit%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text">urlparse和urlsplit函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Request%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text">Request类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-number">5.</span> <span class="toc-text">TODO</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#urllib%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> urllib库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllibrequest-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text"> urllib.request 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#requesturlopen-%E5%87%BD%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text"> request.urlopen 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#requesturlretrieve-%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text"> request.urlretrieve 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urllibparse-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text"> urllib.parse 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#parseurlencode%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text"> parse.urlencode函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parseparse_qs%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text"> parse.parse_qs函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urlparse%E5%92%8Curlsplit%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text"> urlparse和urlsplit函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#request%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text"> Request类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#todo"><span class="toc-number">5.</span> <span class="toc-text"> TODO</span></a></li></ol>
   </article>
   
   

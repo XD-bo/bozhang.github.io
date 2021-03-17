@@ -253,16 +253,16 @@
   <div id="section" class="post-content">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>网络爬虫系列的附加内容，对爬取到的内容进行读取操作</p>
 <span id="more"></span>
-
-
-<hr>
-<h2 id="read-方法"><a href="#read-方法" class="headerlink" title="read()方法"></a>read()方法</h2><p>read方法有一个参数：</p>
+<hr />
+<h2 id="read方法"><a class="markdownIt-Anchor" href="#read方法"></a> read()方法</h2>
+<p>read方法有一个参数：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">f<span class="token punctuation">.</span>read<span class="token punctuation">(</span>size<span class="token punctuation">)</span> <span class="token comment"># f为文件对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>可选参数<code>size</code>为数字，表示从已打开文件中读取的字节计数，默认情况下为读取全部<br>示例：<br>example.txt ：</p>
+<p>可选参数<code>size</code>为数字，表示从已打开文件中读取的字节计数，默认情况下为读取全部<br />
+示例：<br />
+example.txt ：</p>
 <pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">1 2 3
 4 5 6
 7 8 9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
     content <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -270,9 +270,11 @@
 <pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">1 2 3
  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>这里空格和回车各算一个字符，共读取6个。</p>
-<h2 id="readline-方法"><a href="#readline-方法" class="headerlink" title="readline()方法"></a>readline()方法</h2><p>readline方法可以从文件中读取整行，包括换行符’\n’</p>
+<h2 id="readline方法"><a class="markdownIt-Anchor" href="#readline方法"></a> readline()方法</h2>
+<p>readline方法可以从文件中读取整行，包括换行符’\n’</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span>size<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>size</code>表示读取的字节数，默认情况下为读取一行中的全部字符<br>示例：</p>
+<p><code>size</code>表示读取的字节数，默认情况下为读取一行中的全部字符<br />
+示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
     content <span class="token operator">=</span> f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -280,39 +282,19 @@
 <pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">1 2 3
  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>readline方法会记住上一个readline函数读取的位置，接着读取下一行</p>
-<h2 id="readlines方法"><a href="#readlines方法" class="headerlink" title="readlines方法"></a>readlines方法</h2><p>可以读取多行，没有参数，返回的是所有行组成的列表</p>
+<h2 id="readlines方法"><a class="markdownIt-Anchor" href="#readlines方法"></a> readlines方法</h2>
+<p>可以读取多行，没有参数，返回的是所有行组成的列表</p>
 <p>示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
     content <span class="token operator">=</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>运行结果：</p>
 <pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">[&#39;1 2 3\n&#39;, &#39;4 5 6\n&#39;, &#39;7 8 9&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<hr>
+<hr />
 <p>参考： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78330811">一文搞懂Python文件读写.知乎.朱卫军.</a></p>
 <link rel="preload" href="/js/lib/prism/prism.min.css" as="style">
 <link rel="preload" href="/js/lib/prism/prism-tomorrow.min.css" as="style">
-
-<p>调整本文代码样式： <button class="postbutton" style="color: #ffffff;">明亮</button>  <button class="postbutton" style="color: #000000;">黑暗</button> </p>
+<p>调整本文代码样式： <button class="postbutton" style="color: #ffffff;">明亮</button>  <button class="postbutton" style="color: #000000;">黑暗</button></p>
 <script>
   function changePrismTheme(e) {
     let text = e.target.innerHTML;
@@ -340,9 +322,6 @@
     });
   }, 0);
 </script>
-
-
-
 
   </div>
   <div>
@@ -380,7 +359,7 @@
 
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read-%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline-%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">readlines方法</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text"> readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> readlines方法</span></a></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -413,7 +392,7 @@
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read-%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline-%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">readlines方法</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text"> readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> readlines方法</span></a></li></ol>
     </div>
   </article>
   
@@ -423,10 +402,10 @@
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/python/">
+      <a href="/categories/物理/">
         <div class="categories-list-item">
-          python
-          <span class="categories-list-item-badge">4</span>
+          物理
+          <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
@@ -437,10 +416,10 @@
         </div>
       </a>
     
-      <a href="/categories/物理/">
+      <a href="/categories/python/">
         <div class="categories-list-item">
-          物理
-          <span class="categories-list-item-badge">1</span>
+          python
+          <span class="categories-list-item-badge">4</span>
         </div>
       </a>
     
@@ -453,29 +432,29 @@
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
+    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
+    
     <a href="/tags/网络爬虫/" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
     
     <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
     
-    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
-    
-    <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
+    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
     
     <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
     
-    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
-    
-    <a href="/tags/CSS/" title="CSS"><div class="tags-list-item">CSS</div></a>
-    
-    <a href="/tags/单片机/" title="单片机"><div class="tags-list-item">单片机</div></a>
+    <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
     
     <a href="/tags/软件安装/" title="软件安装"><div class="tags-list-item">软件安装</div></a>
     
-    <a href="/tags/光学/" title="光学"><div class="tags-list-item">光学</div></a>
+    <a href="/tags/单片机/" title="单片机"><div class="tags-list-item">单片机</div></a>
+    
+    <a href="/tags/CSS/" title="CSS"><div class="tags-list-item">CSS</div></a>
+    
+    <a href="/tags/干涉条纹/" title="干涉条纹"><div class="tags-list-item">干涉条纹</div></a>
     
     <a href="/tags/等倾干涉/" title="等倾干涉"><div class="tags-list-item">等倾干涉</div></a>
     
-    <a href="/tags/干涉条纹/" title="干涉条纹"><div class="tags-list-item">干涉条纹</div></a>
+    <a href="/tags/光学/" title="光学"><div class="tags-list-item">光学</div></a>
     
   </div>
 </div>
@@ -490,7 +469,7 @@
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read-%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline-%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">readlines方法</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> read()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text"> readline()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> readlines方法</span></a></li></ol>
   </article>
   
   
