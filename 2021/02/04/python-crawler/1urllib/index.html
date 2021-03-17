@@ -264,13 +264,15 @@
 <hr />
 <h2 id="urllib库简介"><a class="markdownIt-Anchor" href="#urllib库简介"></a> urllib库简介</h2>
 <blockquote>
-<p><code>urllib</code> 是一个 Python 内置包，不需要额外安装即可使用，包里面包含了几个用来处理 <code>url</code> 的模块,是一个最基本的网络请求库，可以模拟浏览器的行为，向指定的服务器发送一个请求，并可以保存服务器返回的数据。<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+<p><code>urllib</code> 是一个 Python 内置包，不需要额外安装即可使用，包里面包含了几个用来处理 <code>url</code> 的模块,是一个最基本的网络请求库，可以模拟浏览器的行为，向指定的服务器发送一个请求，并可以保存服务器返回的数据。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[urllib — URL 处理模块](https://docs.python.org/zh-cn/3.6/library/urllib.html) 
+">[1]</span></a></sup></p>
 </blockquote>
 <ul>
 <li><code>urllib.request</code>，用来打开和读取 <code>url</code>，意思就是可以用它来模拟发送请求，就像在浏览器里输入网址然后敲击回车一样，获取网页响应内容。</li>
 <li><code>urllib.error</code>，用来处理 <code>urllib.request</code> 引起的异常，保证程序的正常执行。</li>
 <li><code>urllib.parse</code>，用来解析 <code>url</code>，可以对 <code>url</code> 进行拆分、合并等。</li>
-<li><code>urllib.robotparse</code>，用来解析 <code>robots.txt</code> 文件，判断网站是否能够进行爬取。<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></li>
+<li><code>urllib.robotparse</code>，用来解析 <code>robots.txt</code> 文件，判断网站是否能够进行爬取。<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[urllib 包基本使用.纯洁的微笑](http://www.ityouknow.com/python/2019/11/12/python-spider-Urllib-056.html)
+">[2]</span></a></sup></li>
 </ul>
 <h2 id="urllibrequest-模块"><a class="markdownIt-Anchor" href="#urllibrequest-模块"></a> urllib.request 模块</h2>
 <h3 id="requesturlopen-函数"><a class="markdownIt-Anchor" href="#requesturlopen-函数"></a> request.urlopen 函数</h3>
@@ -281,7 +283,8 @@
 <li><code>timeout</code>，可选参数，设置超时时间(未设置时使用全局默认超时时间)，以秒为单位计时，若请求超出了设置时间还未得到响应则抛出异常。</li>
 <li>剩余的参数不常用，不再详细介绍</li>
 </ul>
-<p>示例:<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></p>
+<p>示例:<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[关于read及其它文件读取的方法，参考我的这篇博客](https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/)
+">[3]</span></a></sup></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
 
 resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
@@ -297,7 +300,8 @@ resp <span class="token operator">=</span> request<span class="token punctuation
 <h3 id="requesturlretrieve-函数"><a class="markdownIt-Anchor" href="#requesturlretrieve-函数"></a> request.urlretrieve 函数</h3>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span> filename<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> reporthook<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
-<p>python3中urllib.request模块提供的urlretrieve()函数。urlretrieve()方法直接将远程数据下载到本地。<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></p>
+<p>python3中urllib.request模块提供的urlretrieve()函数。urlretrieve()方法直接将远程数据下载到本地。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[使用python urlretrieve下载文件.z小白.](https://blog.csdn.net/zzc15806/article/details/79636417)
+">[4]</span></a></sup></p>
 </blockquote>
 <ul>
 <li>参数url：下载链接地址</li>
@@ -323,7 +327,8 @@ result <span class="token operator">=</span> parse<span class="token punctuation
 <h3 id="parseparse_qs函数"><a class="markdownIt-Anchor" href="#parseparse_qs函数"></a> parse.parse_qs函数</h3>
 <p>对URL进行解码，可以理解为<code>urlencode</code>的逆过程</p>
 <h3 id="urlparse和urlsplit函数"><a class="markdownIt-Anchor" href="#urlparse和urlsplit函数"></a> urlparse和urlsplit函数</h3>
-<p>两个函数都用来对URL进行分割，两者用法相同，区别在于<code>urlparse</code>可以分割出URL的<code>params</code>属性，<code>urlsplit</code>则不能<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup><br />
+<p>两个函数都用来对URL进行分割，两者用法相同，区别在于<code>urlparse</code>可以分割出URL的<code>params</code>属性，<code>urlsplit</code>则不能<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="例如http://www.baidu.com/s;demo1?wd=demo2 中的demo1只能被`urlparse`获取
+">[5]</span></a></sup><br />
 示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
 url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s?wd=demo&amp;time=2021#3'</span>
@@ -387,7 +392,7 @@ resp <span class="token operator">=</span> request<span class="token punctuation
 <p>⛳urlllib库的简单介绍大概就这些了，接着是关于IP代理的设置与应用</p>
 <p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" alt="to be continued,Photo by Reuben Juarez on Unsplash" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/to-be-continued.jpg" class="lozad post-image"></p>
 <hr />
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.6/library/urllib.html">urllib — URL 处理模块</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="http://www.ityouknow.com/python/2019/11/12/python-spider-Urllib-056.html">urllib 包基本使用.纯洁的微笑</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><a href="https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/">关于read及其它文件读取的方法，参考我的这篇博客</a></span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://blog.csdn.net/zzc15806/article/details/79636417">使用python urlretrieve下载文件.z小白.</a></span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">例如http://www.baidu.com/s;demo1?wd=demo2 中的demo1只能被<code>urlparse</code>获取</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.6/library/urllib.html">urllib — URL 处理模块</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="http://www.ityouknow.com/python/2019/11/12/python-spider-Urllib-056.html">urllib 包基本使用.纯洁的微笑</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/">关于read及其它文件读取的方法，参考我的这篇博客</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://blog.csdn.net/zzc15806/article/details/79636417">使用python urlretrieve下载文件.z小白.</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">例如http://www.baidu.com/s;demo1?wd=demo2 中的demo1只能被<code>urlparse</code>获取<a href="#fnref:5" rev="footnote"> ↩</a></span></li></ol></div></div>
   </div>
   <div>
   
@@ -467,16 +472,16 @@ resp <span class="token operator">=</span> request<span class="token punctuation
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/物理/">
+      <a href="/categories/NUEDC/">
         <div class="categories-list-item">
-          物理
+          NUEDC
           <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
-      <a href="/categories/NUEDC/">
+      <a href="/categories/物理/">
         <div class="categories-list-item">
-          NUEDC
+          物理
           <span class="categories-list-item-badge">1</span>
         </div>
       </a>
@@ -505,21 +510,21 @@ resp <span class="token operator">=</span> request<span class="token punctuation
     
     <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
     
-    <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
-    
     <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
     
-    <a href="/tags/软件安装/" title="软件安装"><div class="tags-list-item">软件安装</div></a>
-    
-    <a href="/tags/单片机/" title="单片机"><div class="tags-list-item">单片机</div></a>
-    
-    <a href="/tags/CSS/" title="CSS"><div class="tags-list-item">CSS</div></a>
+    <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
     
     <a href="/tags/干涉条纹/" title="干涉条纹"><div class="tags-list-item">干涉条纹</div></a>
     
     <a href="/tags/等倾干涉/" title="等倾干涉"><div class="tags-list-item">等倾干涉</div></a>
     
     <a href="/tags/光学/" title="光学"><div class="tags-list-item">光学</div></a>
+    
+    <a href="/tags/软件安装/" title="软件安装"><div class="tags-list-item">软件安装</div></a>
+    
+    <a href="/tags/单片机/" title="单片机"><div class="tags-list-item">单片机</div></a>
+    
+    <a href="/tags/CSS/" title="CSS"><div class="tags-list-item">CSS</div></a>
     
   </div>
 </div>
