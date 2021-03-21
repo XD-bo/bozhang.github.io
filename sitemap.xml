@@ -2,42 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://vbozhang.github.io/2021/03/17/physical/EqualInclinationInterference/</loc>
+    <loc>https://vbozhang.github.io/2021/03/21/WebFrontEnd/FontAwesome/</loc>
+    
+    <lastmod>2021-03-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vbozhang.github.io/2021/03/17/ElectronicsDesign/CCSinstallation/</loc>
+    
+    <lastmod>2021-03-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vbozhang.github.io/2021/03/01/PythonCrawler/FileReading/</loc>
+    
+    <lastmod>2021-03-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vbozhang.github.io/2021/03/17/Physical/EqualInclinationInterference/</loc>
     
     <lastmod>2021-03-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vbozhang.github.io/2021/03/17/electronics-design/CCSinstallation/</loc>
-    
-    <lastmod>2021-03-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vbozhang.github.io/2021/02/04/python-crawler/1urllib/</loc>
+    <loc>https://vbozhang.github.io/2021/02/04/PythonCrawler/1urllib/</loc>
     
     <lastmod>2021-03-12</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vbozhang.github.io/2021/03/05/python-crawler/2ProxyHandler/</loc>
+    <loc>https://vbozhang.github.io/2021/03/05/PythonCrawler/2ProxyHandler/</loc>
     
     <lastmod>2021-03-12</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vbozhang.github.io/2021/03/01/python-crawler/FileReading/</loc>
-    
-    <lastmod>2021-03-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vbozhang.github.io/2021/02/02/python-crawler/basics/</loc>
+    <loc>https://vbozhang.github.io/2021/02/02/PythonCrawler/basics/</loc>
     
     <lastmod>2021-03-07</lastmod>
     
@@ -53,7 +60,7 @@
 
   <url>
     <loc>https://vbozhang.github.io/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -61,84 +68,105 @@
   
   <url>
     <loc>https://vbozhang.github.io/tags/CSS/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/%E5%85%89%E5%AD%A6/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/%E7%AD%89%E5%80%BE%E5%B9%B2%E6%B6%89/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/%E5%B9%B2%E6%B6%89%E6%9D%A1%E7%BA%B9/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/urllib/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/IP%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/python/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/tags/http%E5%8D%8F%E8%AE%AE/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://vbozhang.github.io/tags/Font-Awesome/</loc>
+    <lastmod>2021-03-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://vbozhang.github.io/tags/Wed%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2021-03-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://vbozhang.github.io/tags/icon/</loc>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -147,21 +175,28 @@
   
   <url>
     <loc>https://vbozhang.github.io/categories/NUEDC/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/categories/%E7%89%A9%E7%90%86/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://vbozhang.github.io/categories/python/</loc>
-    <lastmod>2021-03-20</lastmod>
+    <lastmod>2021-03-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://vbozhang.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

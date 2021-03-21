@@ -8,35 +8,19 @@
   <meta name="theme-color" content="#fff" id="theme-color">
   <meta name="description" content="执着于理想，纯粹于当下">
   <link rel="icon" href="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.svg">
-  <title>python爬虫-proxyhandler处理器</title>
+  <title>标签</title>
   
   
-  <meta property="og:title" content="python爬虫-proxyhandler处理器">
+  <meta property="og:title" content="标签">
   
   
-  <meta property="og:url" content="https://vbozhang.github.io/2021/03/05/python-crawler/2ProxyHandler/index.html">
+  <meta property="og:url" content="https://vbozhang.github.io/tags/icon/index.html">
   
   
-  <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg">
+  <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/tianjingsha_img.png">
   
   
-  <meta property="og:img" content="&lt;p&gt;网络爬虫系列的第三篇，使用proxyhandler处理器伪装IP&lt;/p&gt;">
-  
-  
-  <meta property="og:type" content="article">
-  <meta property="og:article:published_time" content="2021-03-05">
-  <meta property="og:article:modified_time" content="2021-03-12">
-  <meta property="og:article:author" content="天净沙">
-  
-  
-  <meta property="og:article:tag" content="网络爬虫">
-  
-  <meta property="og:article:tag" content="urllib">
-  
-  <meta property="og:article:tag" content="IP代理">
-  
-  <meta property="og:article:tag" content="python">
-  
+  <meta property="og:img" content="执着于理想，纯粹于当下">
   
   
   
@@ -129,10 +113,6 @@
 
   
   
-<link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
-
-  
-  
   
   
   
@@ -207,111 +187,25 @@
       <div class="container">
         <div class="columns">
           <main class="main-column">
-<div class="image-wrapper">
-  <img src="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg"
-    srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif"
-    class="image lozad"
-    alt="thumbnail"
-  >
+<div class="card card-content tag-page-card">
+  <div class="tags-page-title">标签&nbsp-&nbspicon</div>
 </div>
-
-<article class="card card-content">
-  <header>
-    <h1 class="post-title">
-      python爬虫-proxyhandler处理器
-    </h1>
-  </header>
-  <div class="post-meta post-show-meta">
-    <time datetime="2021-03-05T14:54:33.851Z">
-      <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
-      <span>2021-03-05</span>
-    </time>
-    
-    <span class="dot"></span>
-    
-    <a href="/categories/python/" class="post-meta-link">python</a>
-    
-    
-    
-    <span class="dot"></span>
-    <span>212 字</span>
-    
-  </div>
+<div class="archive-timeline">
   
-  <div class="post-meta post-show-meta" style="margin-top: -10px;">
-    <div style="display: flex; align-items: center;">
-      <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
+  
+    
+      <div class="archive-timeline-tag"><span>2021</span></div>
       
-      
-        <a href="/tags/网络爬虫/" class="post-meta-link">网络爬虫</a>
-      
-      
-      <span class="dot"></span>
-      
-        <a href="/tags/urllib/" class="post-meta-link">urllib</a>
-      
-      
-      <span class="dot"></span>
-      
-        <a href="/tags/IP代理/" class="post-meta-link">IP代理</a>
-      
-      
-      <span class="dot"></span>
-      
-        <a href="/tags/python/" class="post-meta-link">python</a>
-      
+    
+    <div class="archive-timeline-item">
+      <div class="archive-timeline-post">
+        <div class="card card-content">
+          <div class="archive-timeline-post-date">2021-03-21</div>
+          <div class="archive-timeline-post-content"><a href="/2021/03/21/WebFrontEnd/FontAwesome/" class="archive-timeline-post-item">在网站中使用 Font Awesome 图标</a></div>
+        </div>
+      </div>
     </div>
-  </div>
   
-  </header>
-  <div id="section" class="post-content">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>网络爬虫系列的第三篇，使用proxyhandler处理器伪装IP</p>
-<span id="more"></span>
-<hr />
-<h2 id="proxyhandler处理器介绍"><a class="markdownIt-Anchor" href="#proxyhandler处理器介绍"></a> ProxyHandler处理器介绍</h2>
-<p><strong>IP地址</strong>，是网际协议中用于标识发送或接收数据报的设备的一串数字<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[维基百科.IP地址.](https://zh.wikipedia.org/zh-cn/IP%E5%9C%B0%E5%9D%80)">[1]</span></a></sup>，很多网站会检测 某一段时间某个IP的访问次数，如果访问过分频繁，可能会限制该IP的访问，所以我们需要借助某种方式来伪装我们的IP，使爬虫程序的正常运行。<br />
-伪装IP的一种有效方式就是使用<strong>代理</strong>，其基本原理如下图：</p>
-<p><img src="https://gitee.com/bozhang/imgbed/raw/master/img/proxy-process.svg" alt="proxy-process" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/proxy-process.svg" class="lozad post-image"></p>
-<p>使用代理服务器访问网站，网站检测到的是代理服务器的IP，在代理服务器IP被禁用后可以更换新的代理服务器，进而可以实现伪装IP的目的。</p>
-<hr />
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/IP%E5%9C%B0%E5%9D%80">维基百科.IP地址.</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
-  </div>
-  <div>
-  
-  </div>
-</article>
-<div class="nav">
-  
-  <div class="nav-item-prev">
-    <a href="/2021/03/17/electronics-design/CCSinstallation/" class="nav-link">
-      <i class="iconfont icon-left nav-prev-icon"></i>
-      <div>
-        <div class="nav-label">上一篇</div>
-        
-        <div class="nav-title">CCS安装踩坑记录 </div>
-        
-      </div>
-    </a>
-  </div>
-  
-  
-  <div class="nav-item-next">
-    <a href="/2021/03/01/python-crawler/FileReading/" class="nav-link">
-      <div>
-        <div class="nav-label">下一篇</div>
-        
-        <div class="nav-title">python爬虫-文件读取 </div>
-        
-      </div>
-      <i class="iconfont icon-right nav-next-icon"></i>
-    </a>
-  </div>
-  
-</div>
-
-<div class="card card-content toc-card" id="mobiletoc">
-  <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#proxyhandler%E5%A4%84%E7%90%86%E5%99%A8%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> ProxyHandler处理器介绍</span></a></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -323,15 +217,15 @@
 <p class="author-description">执着于理想，纯粹于当下</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
-    <span>6</span>
+    <span>7</span>
     <span>文章</span>
   </a>
   <a class="author-categories-count" href="/categories">
-    <span>3</span>
+    <span>4</span>
     <span>分类</span>
   </a>
   <a class="author-tags-count" href="/tags">
-    <span>12</span>
+    <span>15</span>
     <span>标签</span>
   </a>
 </div>
@@ -340,13 +234,6 @@
             
             <div class="sticky-tablet">
   
-  
-  <article class="display-when-two-columns spacer">
-    <div class="card card-content toc-card">
-      <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#proxyhandler%E5%A4%84%E7%90%86%E5%99%A8%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> ProxyHandler处理器介绍</span></a></li></ol>
-    </div>
-  </article>
   
   
   <article class="card card-content categories-widget">
@@ -375,6 +262,13 @@
         </div>
       </a>
     
+      <a href="/categories/前端/">
+        <div class="categories-list-item">
+          前端
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
   </div>
 </div>
   </article>
@@ -389,6 +283,12 @@
     <a href="/tags/网络爬虫/" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
     
     <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
+    
+    <a href="/tags/icon/" title="icon"><div class="tags-list-item">icon</div></a>
+    
+    <a href="/tags/Wed前端/" title="Wed前端"><div class="tags-list-item">Wed前端</div></a>
+    
+    <a href="/tags/Font-Awesome/" title="Font Awesome"><div class="tags-list-item">Font Awesome</div></a>
     
     <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
     
@@ -413,16 +313,58 @@
   </article>
   
   
+  <article class="card card-content widescreen-archive archive-widget">
+    <div class="archive-card">
+  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
+  <div class="archive-card-list">
+    
+    
+    
+      
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+    
+      <a href="/archives/2021" class="archive-card-list-item">
+          2021
+          <span class="archive-card-list-item-badge">7</span>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
 </div>
           </aside>
           <aside class="right-column">
             <div class="sticky-widescreen">
   
-  
-  <article class="card card-content toc-card">
-    <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#proxyhandler%E5%A4%84%E7%90%86%E5%99%A8%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> ProxyHandler处理器介绍</span></a></li></ol>
-  </article>
   
   
   <article class="card card-content">
@@ -431,29 +373,76 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-03-17</div>
-        <a href="/2021/03/17/physical/EqualInclinationInterference/"><div class="recent-posts-item-content">等倾干涉的条纹为什么内疏外密？</div></a>
+        <div class="recent-posts-item-title">2021-03-21</div>
+        <a href="/2021/03/21/WebFrontEnd/FontAwesome/"><div class="recent-posts-item-content">在网站中使用 Font Awesome 图标</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-03-17</div>
-        <a href="/2021/03/17/electronics-design/CCSinstallation/"><div class="recent-posts-item-content">CCS安装踩坑记录</div></a>
+        <a href="/2021/03/17/Physical/EqualInclinationInterference/"><div class="recent-posts-item-content">等倾干涉的条纹为什么内疏外密？</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-03-17</div>
+        <a href="/2021/03/17/ElectronicsDesign/CCSinstallation/"><div class="recent-posts-item-content">CCS安装踩坑记录</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-03-05</div>
-        <a href="/2021/03/05/python-crawler/2ProxyHandler/"><div class="recent-posts-item-content">python爬虫-proxyhandler处理器</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-03-01</div>
-        <a href="/2021/03/01/python-crawler/FileReading/"><div class="recent-posts-item-content">python爬虫-文件读取</div></a>
+        <a href="/2021/03/05/PythonCrawler/2ProxyHandler/"><div class="recent-posts-item-content">python爬虫-proxyhandler处理器</div></a>
       </div>
     
   </div>
 </div>
   </article>
   
+  
+  <article class="card card-content">
+    <div class="archive-card">
+  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
+  <div class="archive-card-list">
+    
+    
+    
+      
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+    
+      <a href="/archives/2021" class="archive-card-list-item">
+          2021
+          <span class="archive-card-list-item-badge">7</span>
+      </a>
+    
+  </div>
+</div>
+  </article>
   
 </div>
           </aside>
@@ -518,29 +507,6 @@
   
 
   
-  
-  <script>
-  var addImgLayout = function () {
-    var img = document.querySelectorAll('.post-content img');
-    var i;
-    for (i = 0; i < img.length; i++) {
-      var wrapper = document.createElement('a');
-      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
-      wrapper.setAttribute('aria-label', 'illustration');
-      wrapper.style.cssText = 'width: 100%; display: flex; justify-content: center;';
-      if (img[i].alt) wrapper.dataset.caption = img[i].alt;
-      wrapper.dataset.nolink = true;
-      img[i].before(wrapper);
-      wrapper.append(img[i]);
-      var divWrap = document.createElement('div');
-      divWrap.classList.add('gallery');
-      wrapper.before(divWrap);
-      divWrap.append(wrapper);
-    }
-    baguetteBox.run('.gallery');
-  }
-</script>
-<script>loadScript("/js/lib/lightbox/baguetteBox.min.js", addImgLayout)</script>
   
   
   

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html  lang="zh-CN" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#fff" id="theme-color">
+  <meta name="description" content="执着于理想，纯粹于当下">
+  <link rel="icon" href="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.svg">
+  <title>CCS安装踩坑记录</title>
+  
+  
+  <meta property="og:title" content="CCS安装踩坑记录">
+  
+  
+  <meta property="og:url" content="https://vbozhang.github.io/2021/03/17/ElectronicsDesign/CCSinstallation/index.html">
+  
+  
+  <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/ccsIDE.jpg">
+  
+  
+  <meta property="og:img" content="&lt;p&gt;对MSP430系列的单片机编程，最流行的是使用CCS集成开发环境，本文讲了CCS安装中踩过的坑&lt;/p&gt;">
+  
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:published_time" content="2021-03-17">
+  <meta property="og:article:modified_time" content="2021-03-20">
+  <meta property="og:article:author" content="天净沙">
+  
+  
+  <meta property="og:article:tag" content="CSS">
+  
+  <meta property="og:article:tag" content="单片机">
+  
+  <meta property="og:article:tag" content="软件安装">
+  
+  
+  
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+    var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      }
+    };
+    setDarkmode();
+  </script>
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  </script>
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+  <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  <link rel="prefetch" href="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" as="script">
+  
+  
+  
+  <link rel="prefetch" href="//cdn-city.livere.com/js/embed.dist.js" as="script">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+
+  
+  
+<link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+
+  
+  
+  
+  
+  
+  
+  <link href="/js/lib/prism/prism.min.css" rel="stylesheet" data-prism="prism">
+  
+  
+  
+<link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div class="wrapper">
+    
+    <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+      <img class="navbar-logo-img" src="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.svg" alt="logo">
+      
+      <span class="navbar-logo-dsc">天净沙的博客</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+    <a href="/" class="navbar-menu-item">
+    
+    首页
+    
+    </a>
+    
+    <a href="/archives" class="navbar-menu-item">
+    
+    归档
+    
+    </a>
+    
+    <a href="/tags" class="navbar-menu-item">
+    
+    标签
+    
+    </a>
+    
+    <a href="/categories" class="navbar-menu-item">
+    
+    分类
+    
+    </a>
+    
+    <a href="/about" class="navbar-menu-item">
+    
+    关于
+    
+    </a>
+    
+    <a class="navbar-menu-item darknavbar" id="dark"><i class="iconfont icon-weather"></i></a>
+    <a class="navbar-menu-item searchnavbar" id="search"><i class="iconfont icon-search" style="font-size: 1.2rem; font-weight: 400;"></i></a>
+  </div>
+</nav>
+    
+    <div id="local-search" style="display: none;">
+      <input class="navbar-menu-item" id="search-input" placeholder="请输入搜索内容...">
+      <div id="search-content"></div>
+    </div>
+    
+    <div class="section-wrap">
+      <div class="container">
+        <div class="columns">
+          <main class="main-column">
+<div class="image-wrapper">
+  <img src="https://gitee.com/bozhang/imgbed/raw/master/img/ccsIDE.jpg" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/ccsIDE.jpg"
+    srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif"
+    class="image lozad"
+    alt="thumbnail"
+  >
+</div>
+
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      CCS安装踩坑记录
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2021-03-17T05:02:43.699Z">
+      <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+      <span>2021-03-17</span>
+    </time>
+    
+    <span class="dot"></span>
+    
+    <a href="/categories/NUEDC/" class="post-meta-link">NUEDC</a>
+    
+    
+    
+    <span class="dot"></span>
+    <span>820 字</span>
+    
+  </div>
+  
+  <div class="post-meta post-show-meta" style="margin-top: -10px;">
+    <div style="display: flex; align-items: center;">
+      <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
+      
+      
+        <a href="/tags/CSS/" class="post-meta-link">CSS</a>
+      
+      
+      <span class="dot"></span>
+      
+        <a href="/tags/单片机/" class="post-meta-link">单片机</a>
+      
+      
+      <span class="dot"></span>
+      
+        <a href="/tags/软件安装/" class="post-meta-link">软件安装</a>
+      
+    </div>
+  </div>
+  
+  </header>
+  <div id="section" class="post-content">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>对MSP430系列的单片机编程，最流行的是使用CCS集成开发环境，本文讲了CCS安装中踩过的坑</p>
+<span id="more"></span>
+<hr />
+<p>因为老师这边TI家MSP430的单片机比较多，所以最早接触的单片机就是这款，优点和缺点就不说了，主要拿这个用来入门单片机就是了（据说掌握了一种单片机其他单片机入门也很快）</p>
+<p>在官方<a target="_blank" rel="noopener" href="https://software-dl.ti.com/ccs/esd/documents/ccs_downloads.html#ccs-incremental-update-policy">安装信息</a>的页面可以下载软件，软件7.0以后的版本是免费的(7.0以前的版本也可以在这里找到许可证)，从官网上下载速度很快，下载好就可以解压安装了(我刚开始下载的是CCS10)</p>
+<h2 id="安装失败无法安装"><a class="markdownIt-Anchor" href="#安装失败无法安装"></a> 安装失败，无法安装</h2>
+<p>原因是字符集不正确(安装页面会有相关警告说明)<a target="_blank" rel="noopener" href="http://software-dl.ti.com/ccs/esd/documents/users_guide/ccs_faqs.html">安装说明</a>上给出了建议</p>
+<blockquote>
+<p>由于CCS使用的Eclipse应用程序框架的限制，用户名不能包含任何Unicode字符。为了安装该产品，请创建一个没有任何Unicode字符的临时管理员用户，并为所有用户安装CCS</p>
+</blockquote>
+<p>就是采用新建一个用户的方法，保证新建的用户名只有ASCII字符(用户名全为英文就好了)，关于字符集和字符编码的介绍看<a target="_blank" rel="noopener" href="https://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html#_2.1._ASCII%E5%AD%97%E7%AC%A6%E9%9B%86&amp;ASCII%E7%BC%96%E7%A0%81">这里</a>，win10官方有介绍<a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/windows/%E5%9C%A8-windows-10-%E4%B8%AD%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%88%96%E7%AE%A1%E7%90%86%E5%91%98%E5%B8%90%E6%88%B7-20de74e0-ac7f-3502-a866-32915af2a34d">新建用户</a>的方法（不建议注册表强制更改原用户名，会导致很多配置上的错误甚至文件丢失，早知道刚买电脑的时候就起一个英文的用户名了T_T）</p>
+<p>或者安装低版本的CCS就不用管这个可以直接安装，我当时就卸载了CCS10然后安装了CCS8，能够直接安装上(但最终运行的时候还会产生问题，下面会讲)</p>
+<h2 id="软件无法打开"><a class="markdownIt-Anchor" href="#软件无法打开"></a> 软件无法打开</h2>
+<p>软件第一次打开的时候没有遇到问题，但第二次打开的，时候出现错误如图<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/ccserror.png" alt="ccserror" style="zoom: 80%;" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/ccserror.png" class="lozad post-image"><br />
+这里的<code>log</code>路径在安装目录\ccsv8\eclipse\configuration下，文件为一串数字+.log的格式，打开发现比较关键性的几句：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">!MESSAGE Error reading configuration: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (拒绝访问。)
+!STACK 0
+java.io.FileNotFoundException: D:\CSplus\NUEDC\CCS\ccsv8\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (拒绝访问。)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>大意就是对一些文件夹没有访问权限，那么以管理员身份运行就应该可以解决，为了以后打开方便，可以设置软件默认打开方式为以管理员方式运行:<br />
+找到程序文件，右键→属性→兼容性→勾选以管理员方式运行<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/ccscharacter.png" alt="ccscharacter" style="zoom: 67%;" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/ccscharacter.png" class="lozad post-image"><br />
+至此，软件能够正常打开</p>
+<h2 id="出现编译错误"><a class="markdownIt-Anchor" href="#出现编译错误"></a> 出现编译错误</h2>
+<p>当打开工作区或编译文件时出现：<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/DebugAssertionFailed.png" alt="DebugAssertionFailed" style="zoom:80%;" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/DebugAssertionFailed.png" class="lozad post-image"><br />
+TI论坛上有<a target="_blank" rel="noopener" href="https://e2e.ti.com/support/tools/ccs/f/code-composer-studio-forum/744087/ccs-msp430g2553-error-message-debug-assertion-failed-when-i-try-to-compile-no-matter-the-code">相关问题</a>，就是安装路径和工作文件夹路径不能有Unicode字符，我当时确认了一下，确实没有Unicode字符，最后又查了半天，发现在C盘用户文件夹下会生成ti的相关临时文件，所以也用户名还是不能用中文，要按照上面介绍的方法新建一个用户名</p>
+<p>至此，安装完成，软件可以在新建用户登陆时正常使用</p>
+
+  </div>
+  <div>
+  
+  </div>
+</article>
+<div class="nav">
+  
+  <div class="nav-item-prev">
+    <a href="/2021/03/17/Physical/EqualInclinationInterference/" class="nav-link">
+      <i class="iconfont icon-left nav-prev-icon"></i>
+      <div>
+        <div class="nav-label">上一篇</div>
+        
+        <div class="nav-title">等倾干涉的条纹为什么内疏外密？ </div>
+        
+      </div>
+    </a>
+  </div>
+  
+  
+  <div class="nav-item-next">
+    <a href="/2021/03/05/PythonCrawler/2ProxyHandler/" class="nav-link">
+      <div>
+        <div class="nav-label">下一篇</div>
+        
+        <div class="nav-title">python爬虫-proxyhandler处理器 </div>
+        
+      </div>
+      <i class="iconfont icon-right nav-next-icon"></i>
+    </a>
+  </div>
+  
+</div>
+
+<div class="card card-content comment-card" style="margin-top: 16px;">
+  <div class="comment-card-title">评论</div>
+  
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81MjU3Ni8yOTA1NA==">
+    <script>
+      (function (d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') {
+          return;
+        }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.defer = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  </div>
+
+</div>
+
+<div class="card card-content toc-card" id="mobiletoc">
+  <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text"> 安装失败，无法安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text"> 软件无法打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF"><span class="toc-number">3.</span> <span class="toc-text"> 出现编译错误</span></a></li></ol>
+</div></main>
+          <aside class="left-column">
+            
+            <div class="card card-author">
+              
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/tianjingsha_img.png" class="author-img">
+
+<p class="author-name">天净沙</p>
+<p class="author-description">执着于理想，纯粹于当下</p>
+<div class="author-message">
+  <a class="author-posts-count" href="/archives">
+    <span>7</span>
+    <span>文章</span>
+  </a>
+  <a class="author-categories-count" href="/categories">
+    <span>4</span>
+    <span>分类</span>
+  </a>
+  <a class="author-tags-count" href="/tags">
+    <span>15</span>
+    <span>标签</span>
+  </a>
+</div>
+
+            </div>
+            
+            <div class="sticky-tablet">
+  
+  
+  <article class="display-when-two-columns spacer">
+    <div class="card card-content toc-card">
+      <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text"> 安装失败，无法安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text"> 软件无法打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF"><span class="toc-number">3.</span> <span class="toc-text"> 出现编译错误</span></a></li></ol>
+    </div>
+  </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
+  <div class="categories-list">
+    
+      <a href="/categories/NUEDC/">
+        <div class="categories-list-item">
+          NUEDC
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/物理/">
+        <div class="categories-list-item">
+          物理
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/python/">
+        <div class="categories-list-item">
+          python
+          <span class="categories-list-item-badge">4</span>
+        </div>
+      </a>
+    
+      <a href="/categories/前端/">
+        <div class="categories-list-item">
+          前端
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
+  <div class="tags-list">
+    
+    <a href="/tags/python/" title="python"><div class="tags-list-item">python</div></a>
+    
+    <a href="/tags/网络爬虫/" title="网络爬虫"><div class="tags-list-item">网络爬虫</div></a>
+    
+    <a href="/tags/urllib/" title="urllib"><div class="tags-list-item">urllib</div></a>
+    
+    <a href="/tags/icon/" title="icon"><div class="tags-list-item">icon</div></a>
+    
+    <a href="/tags/Wed前端/" title="Wed前端"><div class="tags-list-item">Wed前端</div></a>
+    
+    <a href="/tags/Font-Awesome/" title="Font Awesome"><div class="tags-list-item">Font Awesome</div></a>
+    
+    <a href="/tags/http协议/" title="http协议"><div class="tags-list-item">http协议</div></a>
+    
+    <a href="/tags/文件读取/" title="文件读取"><div class="tags-list-item">文件读取</div></a>
+    
+    <a href="/tags/IP代理/" title="IP代理"><div class="tags-list-item">IP代理</div></a>
+    
+    <a href="/tags/干涉条纹/" title="干涉条纹"><div class="tags-list-item">干涉条纹</div></a>
+    
+    <a href="/tags/等倾干涉/" title="等倾干涉"><div class="tags-list-item">等倾干涉</div></a>
+    
+    <a href="/tags/光学/" title="光学"><div class="tags-list-item">光学</div></a>
+    
+    <a href="/tags/软件安装/" title="软件安装"><div class="tags-list-item">软件安装</div></a>
+    
+    <a href="/tags/单片机/" title="单片机"><div class="tags-list-item">单片机</div></a>
+    
+    <a href="/tags/CSS/" title="CSS"><div class="tags-list-item">CSS</div></a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+          <aside class="right-column">
+            <div class="sticky-widescreen">
+  
+  
+  <article class="card card-content toc-card">
+    <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text"> 安装失败，无法安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text"> 软件无法打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF"><span class="toc-number">3.</span> <span class="toc-text"> 出现编译错误</span></a></li></ol>
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>最近文章</div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-03-21</div>
+        <a href="/2021/03/21/WebFrontEnd/FontAwesome/"><div class="recent-posts-item-content">在网站中使用 Font Awesome 图标</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-03-17</div>
+        <a href="/2021/03/17/Physical/EqualInclinationInterference/"><div class="recent-posts-item-content">等倾干涉的条纹为什么内疏外密？</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-03-17</div>
+        <a href="/2021/03/17/ElectronicsDesign/CCSinstallation/"><div class="recent-posts-item-content">CCS安装踩坑记录</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-03-05</div>
+        <a href="/2021/03/05/PythonCrawler/2ProxyHandler/"><div class="recent-posts-item-content">python爬虫-proxyhandler处理器</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>Copyright ©
+          
+          2020 -
+          
+          2021
+        </span>
+        &nbsp;
+        <a href="/" class="footer-link">天净沙的博客 </a>
+      </div>
+    </div>
+
+    
+    <div class="footer-dsc">
+      
+      Powered by
+      <a href="https://hexo.io/" class="footer-link" target="_blank" rel="nofollow noopener noreferrer">&nbsp;Hexo </a>
+      
+      
+      <span>&nbsp;|&nbsp;</span>
+      
+      
+      Theme -
+      <a href="https://github.com/theme-kaze" class="footer-link" target="_blank"
+        rel="nofollow noopener noreferrer">&nbsp;Kaze</a>
+      
+    </div>
+    
+    
+    
+    
+</footer>
+  <a role="button" id="scrollbutton" class="basebutton"  aria-label="回到顶部">
+  <i class="iconfont icon-arrowleft button-icon"></i>
+</a>
+<a role="button" id="menubutton" class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a role="button" id="popbutton" class="basebutton" aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a role="button" id="darkbutton" class="basebutton darkwidget" aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a role="button" id="searchbutton" class="basebutton searchwidget" aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a>
+
+  
+  
+  
+
+  
+  
+  <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img');
+    var i;
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a');
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
+      wrapper.setAttribute('aria-label', 'illustration');
+      wrapper.style.cssText = 'width: 100%; display: flex; justify-content: center;';
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt;
+      wrapper.dataset.nolink = true;
+      img[i].before(wrapper);
+      wrapper.append(img[i]);
+      var divWrap = document.createElement('div');
+      divWrap.classList.add('gallery');
+      wrapper.before(divWrap);
+      divWrap.append(wrapper);
+    }
+    baguetteBox.run('.gallery');
+  }
+</script>
+<script>loadScript("/js/lib/lightbox/baguetteBox.min.js", addImgLayout)</script>
+  
+  
+  
+<script src="/js/main.js"></script>
+
+  
+  
+  <script>
+    var addLazyload = function () {
+      var observer = lozad('.lozad', {
+        load: function (el) {
+          el.srcset = el.getAttribute('data-src');
+        },
+        loaded: function (el) {
+          el.classList.add('loaded');
+        }
+      });
+      observer.observe();
+    }
+  </script>
+  <script>loadScript("/js/lib/lozad.min.js", addLazyload)</script>
+  
+  
+  <script>
+    var googleAnalytics = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FDNHV7ZT66');
+    }
+  </script>
+  <script>loadScript("https://www.googletagmanager.com/gtag/js?id=" + "G-FDNHV7ZT66", googleAnalytics)</script>
+  
+</body>
+
+</html>
