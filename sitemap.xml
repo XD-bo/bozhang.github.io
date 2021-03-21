@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vbozhang.github.io/2021/02/04/PythonCrawler/1urllib/</loc>
+    
+    <lastmod>2021-03-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vbozhang.github.io/2021/03/17/Physics/EqualInclinationInterference/</loc>
     
     <lastmod>2021-03-21</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://vbozhang.github.io/2021/03/01/PythonCrawler/FileReading/</loc>
     
     <lastmod>2021-03-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vbozhang.github.io/2021/02/04/PythonCrawler/1urllib/</loc>
-    
-    <lastmod>2021-03-12</lastmod>
     
   </url>
   
