@@ -8,30 +8,28 @@
   <meta name="theme-color" content="#fff" id="theme-color">
   <meta name="description" content="执着于理想，纯粹于当下">
   <link rel="icon" href="https://gitee.com/bozhang/imgbed/raw/master/img/bolg_logo.svg">
-  <title>python爬虫-文件读取</title>
+  <title>如何下载学在西电教室录播视频</title>
   
   
-  <meta property="og:title" content="python爬虫-文件读取">
+  <meta property="og:title" content="如何下载学在西电教室录播视频">
   
   
-  <meta property="og:url" content="https://vbozhang.github.io/2021/03/01/PythonCrawler/FileReading/index.html">
+  <meta property="og:url" content="https://vbozhang.github.io/2021/06/04/myXDU/XduVideo/index.html">
   
   
-  <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg">
+  <meta property="og:img" content="https://gitee.com/bozhang/imgbed/raw/master/img/XDlearn.jpg">
   
   
-  <meta property="og:img" content="&lt;p&gt;网络爬虫系列的附加内容，对爬取到的内容进行读取操作&lt;/p&gt;">
+  <meta property="og:img" content="&lt;p&gt;学在西电课程录播无法跳转播放、倍速播放，采用直接把视频下载下来再播放的方式更节省时间，提高效率，然后反复尝试后摸索出了一种方法∠( ᐛ 」∠)_&lt;/p&gt;">
   
   
   <meta property="og:type" content="article">
-  <meta property="og:article:published_time" content="2021-03-01">
-  <meta property="og:article:modified_time" content="2021-03-20">
+  <meta property="og:article:published_time" content="2021-06-04">
+  <meta property="og:article:modified_time" content="2021-06-04">
   <meta property="og:article:author" content="天净沙">
   
   
-  <meta property="og:article:tag" content="python">
-  
-  <meta property="og:article:tag" content="文件读取">
+  <meta property="og:article:tag" content="XDU">
   
   
   
@@ -204,7 +202,7 @@
         <div class="columns">
           <main class="main-column">
 <div class="image-wrapper">
-  <img src="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/web-%20crawler.jpeg"
+  <img src="https://gitee.com/bozhang/imgbed/raw/master/img/XDlearn.jpg" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/XDlearn.jpg"
     srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif"
     class="image lozad"
     alt="thumbnail"
@@ -214,23 +212,23 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      python爬虫-文件读取
+      如何下载学在西电教室录播视频
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2021-03-01T14:26:22.330Z">
+    <time datetime="2021-06-04T13:27:28.371Z">
       <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
-      <span>2021-03-01</span>
+      <span>2021-06-04</span>
     </time>
     
     <span class="dot"></span>
     
-    <a href="/categories/python/" class="post-meta-link">python</a>
+    <a href="/categories/XDU/" class="post-meta-link">XDU</a>
     
     
     
     <span class="dot"></span>
-    <span>385 字</span>
+    <span>1k 字</span>
     
   </div>
   
@@ -239,90 +237,78 @@
       <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
       
       
-        <a href="/tags/python/" class="post-meta-link">python</a>
-      
-      
-      <span class="dot"></span>
-      
-        <a href="/tags/文件读取/" class="post-meta-link">文件读取</a>
+        <a href="/tags/XDU/" class="post-meta-link">XDU</a>
       
     </div>
   </div>
   
   </header>
   <div id="section" class="post-content">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>网络爬虫系列的附加内容，对爬取到的内容进行读取操作</p>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>学在西电课程录播无法跳转播放、倍速播放，采用直接把视频下载下来再播放的方式更节省时间，提高效率，然后反复尝试后摸索出了一种方法∠( ᐛ 」∠)_</p>
 <span id="more"></span>
-<hr />
-<h2 id="read方法-i-classfa-fa-book-stylefont-size16pxi"><a class="markdownIt-Anchor" href="#read方法-i-classfa-fa-book-stylefont-size16pxi"></a> read()方法 <i class="fa fa-book" style="font-size:16px;"></i></h2>
-<p>read方法有一个参数：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">f<span class="token punctuation">.</span>read<span class="token punctuation">(</span>size<span class="token punctuation">)</span> <span class="token comment"># f为文件对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>可选参数<code>size</code>为数字，表示从已打开文件中读取的字节计数，默认情况下为读取全部<br />
-示例：<br />
-example.txt ：</p>
-<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">1 2 3
-4 5 6
-7 8 9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-    content <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>运行结果：</p>
-<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">1 2 3
- <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>这里空格和回车各算一个字符，共读取6个。</p>
-<h2 id="readline方法-i-classfa-fa-book-stylefont-size16pxi"><a class="markdownIt-Anchor" href="#readline方法-i-classfa-fa-book-stylefont-size16pxi"></a> readline()方法 <i class="fa fa-book" style="font-size:16px;"></i></h2>
-<p>readline方法可以从文件中读取整行，包括换行符’\n’</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span>size<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>size</code>表示读取的字节数，默认情况下为读取一行中的全部字符<br />
-示例：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-    content <span class="token operator">=</span> f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>运行结果：</p>
-<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">1 2 3
- <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>readline方法会记住上一个readline函数读取的位置，接着读取下一行</p>
-<h2 id="readlines方法-i-classfa-fa-book-stylefont-size16pxi"><a class="markdownIt-Anchor" href="#readlines方法-i-classfa-fa-book-stylefont-size16pxi"></a> readlines方法 <i class="fa fa-book" style="font-size:16px;"></i></h2>
-<p>可以读取多行，没有参数，返回的是所有行组成的列表</p>
-<p>示例：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span>  <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-    content <span class="token operator">=</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>运行结果：</p>
-<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">[&#39;1 2 3\n&#39;, &#39;4 5 6\n&#39;, &#39;7 8 9&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<hr />
-<p>参考： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78330811">一文搞懂Python文件读写.知乎.朱卫军.</a></p>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-<link rel="preload" href="/js/lib/prism/prism.min.css" as="style">
-<link rel="preload" href="/js/lib/prism/prism-tomorrow.min.css" as="style">
-<p>调整本文代码样式： <button class="postbutton" style="color: #ffffff;">明亮</button>  <button class="postbutton" style="color: #000000;">黑暗</button></p>
-<script>
-  function changePrismTheme(e) {
-    let text = e.target.innerHTML;
-    let linkList = document.head.getElementsByTagName('link');
-    for(let item of linkList) {
-      if(item.dataset.prism) {
-        document.head.removeChild(item);
-      }
-    }
-    let link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.dataset.prism = text;
-    if(text === '明亮') {
-      text = 'prism';
-    } else {
-      text = 'prism-tomorrow';
-    }
-    link.href='/js/lib/prism/' + text +'.min.css';
-    document.head.appendChild(link);
-  }
-  setTimeout(() => {
-    let buttonList = document.getElementsByClassName('postbutton');
-    Array.prototype.forEach.call(buttonList, item => {
-      item.onclick = changePrismTheme;
-    });
-  }, 0);
-</script>
+<h2 id="需要做的准备和下载效果"><a class="markdownIt-Anchor" href="#需要做的准备和下载效果"></a> 需要做的准备和下载效果</h2>
+<p><strong>先说下载前要准备的东西：</strong><br />
+设备上：电脑、速度还可以的网络<br />
+软件上：</p>
+<ol>
+<li>360急速浏览器 (或者搜狗、QQ等还支持Flash的浏览器)</li>
+<li>Flash</li>
+<li>IDM (Internet Download Manager)</li>
+<li>Potplayer (能够播放FLV格式视频的播放器应该就可以)</li>
+</ol>
+<p><strong>下载时间</strong><br />
+一节课按50分钟计算，下载速率340kb/s，一个视频按照780MB计算，需要40分钟左右（确实不怎么快，但比直接网页看要好很多）。<br />
+<strong>下载的视频效果：</strong><br />
+视频流畅不卡顿，音画同步，画质清晰……（总之就是非常可以）</p>
+<h2 id="准备阶段"><a class="markdownIt-Anchor" href="#准备阶段"></a> 准备阶段</h2>
+<p>下面主要从软件角度讲一下各个软件的操作，如果这些软件都安装过了，只用看高亮部分就行了。</p>
+<h3 id="浏览器和flash的准备"><a class="markdownIt-Anchor" href="#浏览器和flash的准备"></a> 浏览器和Flash的准备</h3>
+<p>上吧4399！<br />
+<a target="_blank" rel="noopener" href="http://www.4399.com/flash/32979.htm">4399洛克王国</a><br />
+没错就是洛克王国，点进去如果电脑Flash没调好就会出现以下界面:<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/4300flash.jpg" alt="4399洛克王国主界面" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/4300flash.jpg" class="lozad post-image"><br />
+在这个页面上给了浏览器和Flash的链接，还有如何使用Flash的详细教程，小朋友都能看懂！如果安装了浏览器，注意关键的一点是要<mark>把浏览器调成极速模式</mark>，4399也有教程的。</p>
+<h3 id="idm的安装与配置"><a class="markdownIt-Anchor" href="#idm的安装与配置"></a> IDM的安装与配置</h3>
+<p>IDM就是个下载器（详情自行百度），这里要用到它抓取网页视频的功能。</p>
+<h4 id="下载安装"><a class="markdownIt-Anchor" href="#下载安装"></a> 下载安装</h4>
+<p>IDM是个付费软件，好像还不怎么贵，不想买的话直接从这里下载https://downloadly.net/2020/12/2023/03/internet-download-manager/02/?#/2023-internet-172110060604.html<br />
+那啥版的也没有复杂的安装过程，直接装上就行了，好像还有便携版（这个没用过不清楚可不可以）。</p>
+<h4 id="配置"><a class="markdownIt-Anchor" href="#配置"></a> 配置</h4>
+<ol>
+<li>
+<p>设置能抓取相应浏览器（以360浏览器为例）<br />
+打开IDM主界面→下载→选项→常规→添加浏览器→点击确定找到浏览器的exe文件并添加<br />
+当界面出现你要的那个浏览器的时候就成功了。<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/IDMset.png" alt="IDMSet" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/IDMset.png" class="lozad post-image"></p>
+</li>
+<li>
+<p>设置缓存文件夹<br />
+打开IDM主界面→下载→选项→保存至→临时文件夹<br />
+设置一个临时文件夹，或者不用设置，只要知道文件缓存到哪里就行了。</p>
+</li>
+<li>
+<p>设置下载单线程<br />
+为了保证下载时候的稳定性，建议调成单线程下载<br />
+打开IDM主界面→下载→选项→连接<br />
+把默认最大连接数调成1</p>
+</li>
+</ol>
+<h3 id="potplayer的下载安装"><a class="markdownIt-Anchor" href="#potplayer的下载安装"></a> Potplayer的下载安装</h3>
+<p>这是个免费软件：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="http://www.potplayercn.com/download/">potplayer中文网</a></li>
+<li><a target="_blank" rel="noopener" href="https://pc.qq.com/detail/14/detail_15654.html">腾讯软件中心</a></li>
+</ol>
+<h2 id="视频下载与播放"><a class="markdownIt-Anchor" href="#视频下载与播放"></a> 视频下载与播放</h2>
+<p>进入学在西电→个人空间→录直播应用，点进课堂录播视频，然后IDM会进行抓取<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/IDMGrab1.jpg" alt="IDM抓取" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/IDMGrab1.jpg" class="lozad post-image"><br />
+点击页面左下角的下载按钮，会出现下载选项，比较大的拍的是老师，比较小的拍的是PPT。<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/IDMGrab2.jpg" alt="IDM下载" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/IDMGrab2.jpg" class="lozad post-image"><br />
+如果出现了过多下载选项，是因为浏览器曾打开过多个视频<br />
+<img src="https://gitee.com/bozhang/imgbed/raw/master/img/IDMGrab3.jpg" alt="IDM重复抓取" / srcset="https://gitee.com/bozhang/imgbed/raw/master/img/preloader.gif" data-src="https://gitee.com/bozhang/imgbed/raw/master/img/IDMGrab3.jpg" class="lozad post-image"><br />
+IDM会把遇到的视频都抓一遍，重启浏览器就能解决。</p>
+<p>下载过程是一个不会停止的过程，必须手动终止，当你看到下载的文件大小超过与之前抓取时显示的文件大小时就可以终止下载，后面再下载只不过是把前面的视频有重复播放了（就是循环播放的模式），所以看到大小够了就终止。</p>
+<p>找到IDM的临时文件夹（上面设置过了），DwnlData→用户名，每个file-cloud文件夹对应不同视频，有一个日志文件和一个没有格式的文件，把没有格式的文件后缀改成<code>.flv</code>就成了普通视频文件，然后就可以看了，PotPlayer支持倍速<code>c</code>加快，<code>x</code>减慢，<code>z</code>复位。</p>
 
   </div>
   <div>
@@ -331,25 +317,13 @@ example.txt ：</p>
 </article>
 <div class="nav">
   
-  <div class="nav-item-prev">
-    <a href="/2021/03/05/PythonCrawler/2ProxyHandler/" class="nav-link">
-      <i class="iconfont icon-left nav-prev-icon"></i>
-      <div>
-        <div class="nav-label">上一篇</div>
-        
-        <div class="nav-title">python爬虫-proxyhandler处理器 </div>
-        
-      </div>
-    </a>
-  </div>
-  
   
   <div class="nav-item-next">
-    <a href="/2021/02/04/PythonCrawler/1urllib/" class="nav-link">
+    <a href="/2021/03/21/WebFrontEnd/FontAwesome/" class="nav-link">
       <div>
         <div class="nav-label">下一篇</div>
         
-        <div class="nav-title">python爬虫-urllib库 </div>
+        <div class="nav-title">在网站中使用 Font Awesome 图标 </div>
         
       </div>
       <i class="iconfont icon-right nav-next-icon"></i>
@@ -358,9 +332,29 @@ example.txt ：</p>
   
 </div>
 
+<div class="card card-content comment-card" style="margin-top: 16px;">
+  <div class="comment-card-title">评论</div>
+  
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81MjU3Ni8yOTA1NA==">
+    <script>
+      (function (d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') {
+          return;
+        }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.defer = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  </div>
+
+</div>
+
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E6%96%B9%E6%B3%95-i-classfa-fa-book-stylefont-size16pxi"><span class="toc-number">1.</span> <span class="toc-text"> read()方法 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline%E6%96%B9%E6%B3%95-i-classfa-fa-book-stylefont-size16pxi"><span class="toc-number">2.</span> <span class="toc-text"> readline()方法 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95-i-classfa-fa-book-stylefont-size16pxi"><span class="toc-number">3.</span> <span class="toc-text"> readlines方法 </span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%81%9A%E7%9A%84%E5%87%86%E5%A4%87%E5%92%8C%E4%B8%8B%E8%BD%BD%E6%95%88%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text"> 需要做的准备和下载效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5"><span class="toc-number">2.</span> <span class="toc-text"> 准备阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cflash%E7%9A%84%E5%87%86%E5%A4%87"><span class="toc-number">2.1.</span> <span class="toc-text"> 浏览器和Flash的准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idm%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text"> IDM的安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 下载安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#potplayer%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">2.3.</span> <span class="toc-text"> Potplayer的下载安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E4%B8%8E%E6%92%AD%E6%94%BE"><span class="toc-number">3.</span> <span class="toc-text"> 视频下载与播放</span></a></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -393,7 +387,7 @@ example.txt ：</p>
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E6%96%B9%E6%B3%95-i-classfa-fa-book-stylefont-size16pxi"><span class="toc-number">1.</span> <span class="toc-text"> read()方法 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline%E6%96%B9%E6%B3%95-i-classfa-fa-book-stylefont-size16pxi"><span class="toc-number">2.</span> <span class="toc-text"> readline()方法 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95-i-classfa-fa-book-stylefont-size16pxi"><span class="toc-number">3.</span> <span class="toc-text"> readlines方法 </span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%81%9A%E7%9A%84%E5%87%86%E5%A4%87%E5%92%8C%E4%B8%8B%E8%BD%BD%E6%95%88%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text"> 需要做的准备和下载效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5"><span class="toc-number">2.</span> <span class="toc-text"> 准备阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cflash%E7%9A%84%E5%87%86%E5%A4%87"><span class="toc-number">2.1.</span> <span class="toc-text"> 浏览器和Flash的准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idm%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text"> IDM的安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 下载安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#potplayer%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">2.3.</span> <span class="toc-text"> Potplayer的下载安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E4%B8%8E%E6%92%AD%E6%94%BE"><span class="toc-number">3.</span> <span class="toc-text"> 视频下载与播放</span></a></li></ol>
     </div>
   </article>
   
@@ -492,7 +486,7 @@ example.txt ：</p>
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E6%96%B9%E6%B3%95-i-classfa-fa-book-stylefont-size16pxi"><span class="toc-number">1.</span> <span class="toc-text"> read()方法 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readline%E6%96%B9%E6%B3%95-i-classfa-fa-book-stylefont-size16pxi"><span class="toc-number">2.</span> <span class="toc-text"> readline()方法 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readlines%E6%96%B9%E6%B3%95-i-classfa-fa-book-stylefont-size16pxi"><span class="toc-number">3.</span> <span class="toc-text"> readlines方法 </span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%81%9A%E7%9A%84%E5%87%86%E5%A4%87%E5%92%8C%E4%B8%8B%E8%BD%BD%E6%95%88%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text"> 需要做的准备和下载效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5"><span class="toc-number">2.</span> <span class="toc-text"> 准备阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cflash%E7%9A%84%E5%87%86%E5%A4%87"><span class="toc-number">2.1.</span> <span class="toc-text"> 浏览器和Flash的准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idm%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text"> IDM的安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 下载安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#potplayer%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">2.3.</span> <span class="toc-text"> Potplayer的下载安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E4%B8%8E%E6%92%AD%E6%94%BE"><span class="toc-number">3.</span> <span class="toc-text"> 视频下载与播放</span></a></li></ol>
   </article>
   
   
